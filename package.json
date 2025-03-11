@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "devDependencies": {
+  "dependencies": {
     "vite": "^6.2.0",
     "vite-plugin-singlefile": "^2.2.0"
   }
