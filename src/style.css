@@ -1,0 +1,317 @@
+html, body {
+  background: #f6f6ef;
+  font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.btn {
+  font-size: 1rem;
+  background-color: #efefef;
+  color: #000;
+  padding: .4rem .8rem .4rem .8rem;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-decoration: none;
+  border: 1px solid #000;
+  border-radius: 0;
+  outline: 0;
+  box-shadow: 2px 2px #bbb;
+  appearance: none;
+  fill: #000;
+}
+
+.hidden {
+  display: none;
+}
+
+.dots {
+  background-image: radial-gradient(#333 .5px, transparent 0px);
+  background-repeat: repeat;
+  background-size: 1rem 1rem;
+  background-position: center;
+}
+
+.primary-container {
+  max-width: 64rem;
+  margin: 1rem auto 1rem auto;
+  border: 1px solid #000;
+  background-color: #fff;
+}
+
+@media (max-width: 64rem) {
+  .primary-container {
+    margin: 0;
+    border: 0;
+  }
+}
+
+.heading {
+  display: flex;
+  padding: .3rem 1rem .2rem 1rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #174a90;
+  height: 2rem;
+}
+
+.heading__branding {
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  font-weight: 900;
+  margin: .3rem 0;
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+}
+
+.heading__logo  {
+  height: 1.5rem;
+  width: 1.5rem;
+  fill: #fff;
+}
+
+.heading__title {
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  color: #fff;
+  user-select: none;
+}
+
+.heading__nav-list {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.heading__nav-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.heading__nav-link:hover {
+  text-decoration: underline;
+}
+
+.content {
+  padding: 1rem;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 48rem) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hero__title {
+  text-wrap: balance;
+}
+
+.hero__tag {
+  display: inline-block;
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  font-weight: normal;
+  font-weight: 400;
+  font-size: .8rem;
+  line-height: 1.2rem;
+  padding-right: .2rem;
+  padding-left: .3rem;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  border: .1rem solid #000;
+}
+
+.hero__tag--gold {
+  background-color: #ffb700;
+}
+
+@media (color-gamut:p3) {
+  .hero__tag--gold {
+    background-color: color(display-p3 .985 .766 0);
+  }
+}
+
+.hero__tag--blue {
+  background-color: #7999E4;
+}
+
+@media (color-gamut:p3) {
+  .hero__tag--blue {
+    background-color: color(display-p3 0.52 0.661 0.99);
+  }
+}
+
+.hero__tag--cerise {
+  background-color: #fb618f;
+}
+
+@media (color-gamut:p3) {
+  .hero__tag--cerise {
+    background-color: color(display-p3 0.965 0.42 0.582);
+  }
+}
+
+.hero__description {
+  font-size: 1rem;
+}
+
+.hero__cta {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-top: 2rem;
+}
+
+.hero__cta-link {
+  display: none;
+}
+
+.hero__cta-link--generic {
+  display: inline-block;
+}
+
+.hero__download-btn {
+  background-color: #00aa6b;
+  color: #fff;
+}
+
+@media (color-gamut:p3) {
+  .hero__download-btn {
+    background-color: color(display-p3 0 0.605 0.377);
+  }
+}
+
+.hero__download-btn:hover {
+  background-color: #005f3b;
+}
+
+.hero__download-btn:active {
+  background-color: #004c30;
+}
+
+.hero__download-btn:focus {
+  box-shadow: 2px 2px #bbb, 0 0 0 2px #00794c;
+}
+
+.screenshot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.screenshot__image {
+  width: 20rem;
+  height: auto;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.screenshot__caption {
+  font-size: .85rem;
+  text-align: center;
+  color: #666;
+  margin-top: .5rem;
+  text-wrap: balance;
+}
+
+.features-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 48rem) {
+  .features-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.features-list {
+  list-style-type: square;
+  list-style-position: inside;
+  padding-left: 0;
+  margin-top: 0;
+}
+
+.feature__title {
+  font-size: 1rem;
+  margin-bottom: .5rem;
+  display: inline;
+}
+
+.feature__description {
+  text-wrap: balance;
+}
+
+.downloads-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.downloads-list__item {
+  margin-top: .5rem;
+}
+
+.downloads-list__link {
+  text-decoration: none;
+}
+
+.downloads-list__btn {
+  background-color: #00449e;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.downloads-list__btn:hover {
+  background-color: #00337b;
+}
+
+.downloads-list__btn:active {
+  background-color: #002b6b;
+}
+
+@media (color-gamut:p3) {
+  .downloads-list__btn {
+    background-color: color(display-p3 0 .283 .665);
+  }
+}
+
+.downloads-list__btn-icon {
+  color: white;
+  height: 1.5rem;
+  width: auto;
+}
+
+.footer {
+  padding: 1rem;
+  background-color: rgb(23, 74, 144);
+  height: 2rem;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__nav-list {
+  list-style: none;
+}
+
+.footer__nav-list-item {
+  color: #fff;
+  text-decoration: none;
+}
