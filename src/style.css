@@ -113,7 +113,7 @@ p {
 
 @media (max-width: 48rem) {
   .hero {
-    grid-template-columns: 1fr;
+    display: block;
   }
 }
 
@@ -236,7 +236,7 @@ p {
 
 @media (max-width: 48rem) {
   .features-container {
-    grid-template-columns: 1fr;
+    display: block;
   }
 }
 
@@ -255,6 +255,12 @@ p {
 
 .feature__description {
   text-wrap: balance;
+}
+
+@media (max-width: 48rem) {
+  .feature__description {
+    text-wrap: normal;
+  }
 }
 
 .downloads-list {
