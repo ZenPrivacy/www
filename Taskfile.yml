@@ -1,0 +1,17 @@
+version: '3'
+
+tasks:
+  default:
+    desc: Runs the dev task.
+    cmds:
+      - task: dev
+
+  dev:
+    desc: Runs Vite in development mode.
+    cmds:
+      - npm run dev
+
+  build:
+    desc: Builds the project for production.
+    cmds:
+      - npm run build
