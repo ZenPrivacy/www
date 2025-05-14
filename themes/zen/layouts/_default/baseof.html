@@ -13,6 +13,7 @@
     {{ $indexJS := resources.Get "js/index.js" | js.Build "index.js" | minify | fingerprint }}
     <script src="{{ $indexJS.Permalink }}" integrity="{{ $indexJS.Data.Integrity }}" type="module" defer></script>
   {{ end }}
+  <link rel="canonical" href="{{ .Permalink }}">
   <meta property="og:title" content="Zen" />
   <meta
     property="og:description"
