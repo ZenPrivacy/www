@@ -7,11 +7,11 @@ tasks:
       - task: dev
 
   dev:
-    desc: Runs Vite in development mode.
+    desc: Runs Hugo in development mode.
     cmds:
-      - npm run dev
+      - hugo server -D
 
   build:
-    desc: Builds the project for production.
+    desc: Builds the site for production.
     cmds:
-      - npm run build
+      - hugo

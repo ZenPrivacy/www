@@ -1,0 +1,208 @@
+{{ define "main" }}
+<section id="hero" class="hero">
+  <div>
+    <h2 class="hero__title">
+      Simple, free and efficient ad-blocker and privacy guard for
+      Windows, macOS and Linux
+    </h2>
+    <div>
+      <span class="hero__tag">Free</span>
+      <span class="hero__tag hero__tag--blue">Privacy Guard</span>
+      <span class="hero__tag hero__tag--cerise">Ad-blocker</span>
+      <span class="hero__tag hero__tag--gold">Open Source</span>
+    </div>
+    <p class="hero__description">
+      Zen is a simple and powerful desktop application that helps you
+      <strong>browse the internet and use your apps without annoying ads,
+        trackers, or hidden threats</strong>. It works quietly in the background, blocking unwanted content
+      across your entire computer—not just in your web browser, but in
+      your other apps too. Zen comes ready to protect you with
+      built-in filters, and you can easily customize it to suit your
+      needs. Whether you're looking for a cleaner, faster, and more
+      private online experience, or just want to stop invasive
+      tracking, Zen has you covered. Available for
+      <strong>Windows, macOS, and Linux</strong>. Free and open
+      source, forever.
+    </p>
+
+    <div class="hero__cta">
+      <a href="#downloads-windows" class="hidden" data-os="windows">
+        <button class="btn hero__download-btn">
+          Get Zen for Windows
+        </button>
+      </a>
+      <a href="#downloads-macos" class="hidden" data-os="macos">
+        <button class="btn hero__download-btn">
+          Get Zen for macOS
+        </button>
+      </a>
+      <a href="#downloads-linux" class="hidden" data-os="linux">
+        <button class="btn hero__download-btn">
+          Get Zen for Linux
+        </button>
+      </a>
+      <a href="#downloads" data-os="other">
+        <button class="btn hero__download-btn">Get Zen</button>
+      </a>
+      <a href="#downloads" class="hidden" data-os="identified">and other platforms</a>
+    </div>
+  </div>
+
+  <figure class="screenshot">
+    {{ with resources.Get "images/index/main-page-screenshot.png" }}
+      {{ $img := . | fingerprint }}
+      <img src="{{ $img.Permalink }}" alt="Screenshot of Zen's main page" class="screenshot__image" />
+    {{ end }}
+
+    <figcaption class="screenshot__caption">
+      Zen in action: the main page. Each request can be inspected to
+      see which filter and rule blocked it.
+    </figcaption>
+  </figure>
+</section>
+
+<section id="features" class="features">
+  <h2>Features</h2>
+  <div class="features-container">
+    <figure class="screenshot">
+      <!-- <img src="/regional-filters-screenshot.png" alt="Screenshot of Zen's Filter lists page" -->
+        <!-- class="screenshot__image" /> -->
+
+      {{ with resources.Get "images/index/regional-filters-screenshot.png" }}
+        {{ $img := . | fingerprint }}
+        <img src="{{ $img.Permalink }}" alt="Screenshot of Zen's Filter lists page" class="screenshot__image" />
+      {{ end }}
+
+      <figcaption class="screenshot__caption">
+        Zen comes with many filters, with the ability to add your own.
+      </figcaption>
+    </figure>
+
+    <ul class="features-list">
+      <li class="feature">
+        <h3 class="feature__title">Replaces many tools with one</h3>
+        <p class="feature__description">
+          Forget countless browser extensions, hosts files, and other
+          tools. Zen works across all your browsers and many desktop
+          apps, with no configuration needed.
+        </p>
+      </li>
+      <li class="feature">
+        <h3 class="feature__title">
+          Comes with powerful built-in filters
+        </h3>
+        <p class="feature__description">
+          Zen comes with powerful pre-configured filters for ads,
+          privacy, security and malware. It also includes 36 regional
+          filters for your country or language. Want more protection?
+          Easily add your own filters and rules—Zen supports all
+          popular filter formats.
+        </p>
+      </li>
+      <li class="feature">
+        <h3 class="feature__title">No compromises</h3>
+        <p class="feature__description">
+          Zen is free and
+          <a href="https://github.com/ZenPrivacy/zen-desktop" target="_blank" rel="noopener noreferrer">open source</a>.
+          It's built to be fast, efficient, and lightweight. The
+          app itself respects your privacy, and doesn't track you or
+          collect any data. Built with love and care by a small team
+          of passionate developers.
+        </p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="downloads">
+  <h2>Downloads</h2>
+  <p>
+    During the first run, Zen will prompt you to install a root
+    certificate. This is required for Zen to be able to intercept and
+    modify HTTPS requests. This certificate is generated locally and
+    never leaves your device.
+  </p>
+
+  <h3 id="downloads-windows">Windows</h3>
+  <ul class="downloads-list">
+    <li class="downloads-list__item">
+      <a href="https://github.com/ZenPrivacy/zen-desktop/releases/latest/download/Zen-amd64-installer.exe"
+        rel="noopener noreferrer" class="downloads-list__link"><button class="btn downloads-list__btn">
+          x64 Installer 💾
+        </button></a>
+    </li>
+    <li class="downloads-list__item">
+      <a href="https://github.com/ZenPrivacy/zen-desktop/releases/latest/download/Zen-arm64-installer.exe"
+        rel="noopener noreferrer" class="downloads-list__link"><button class="btn downloads-list__btn">
+          ARM64 Installer 💾
+        </button></a>
+    </li>
+  </ul>
+  <p>
+    Unsure which version to download? Click on 'Start' and type 'View
+    processor info'. The 'System type' field under 'Device
+    specifications' will tell you which one you need.
+  </p>
+
+  <h3 id="downloads-macos">macOS</h3>
+  <ul class="downloads-list">
+    <li class="downloads-list__item">
+      <a href="https://github.com/ZenPrivacy/zen-desktop/releases/latest/download/Zen-amd64.dmg"
+        rel="noopener noreferrer" class="downloads-list__link"><button class="btn downloads-list__btn">
+          x64 (Intel) Installer 💾
+        </button></a>
+    </li>
+    <li class="downloads-list__item">
+      <a href="https://github.com/ZenPrivacy/zen-desktop/releases/latest/download/Zen-arm64.dmg"
+        rel="noopener noreferrer" class="downloads-list__link"><button class="btn downloads-list__btn">
+          ARM64 (Apple Silicon) Installer 💾
+        </button></a>
+    </li>
+  </ul>
+  <p>
+    Unsure which version to download? Learn at
+    <a href="https://support.apple.com/en-us/HT211814" target="_blank" rel="noopener noreferrer">Apple's
+      website</a>.
+  </p>
+
+  <h3 id="downloads-linux">Linux</h3>
+  <ul class="downloads-list">
+    <li class="downloads-list__item">
+      <a href="https://github.com/ZenPrivacy/zen-desktop/releases/latest/download/Zen_linux_amd64.tar.gz"
+        rel="noopener noreferrer" class="downloads-list__link"><button class="btn downloads-list__btn">
+          x64 Portable Binary 📦
+        </button></a>
+    </li>
+    <li class="downloads-list__item">
+      <a href="https://github.com/ZenPrivacy/zen-desktop/releases/latest/download/Zen_linux_arm64.tar.gz"
+        rel="noopener noreferrer" class="downloads-list__link"><button class="btn downloads-list__btn">
+          ARM64 Portable Binary 📦
+        </button></a>
+    </li>
+    <li class="downloads-list__item">
+      <a href="https://aur.archlinux.org/packages/zen-adblocker-bin" target="_blank" rel="noopener noreferrer"
+        class="downloads-list__link"><button class="btn downloads-list__btn">
+          AUR (community maintained) →
+        </button></a>
+    </li>
+  </ul>
+  <p>
+    On Linux, automatic proxy configuration is currently only
+    supported on GNOME-based desktop environments.
+  </p>
+</section>
+
+<section id="community">
+  <h2>Community</h2>
+  <p>
+    Zen needs you!
+    <a href="https://discord.gg/jSzEwby7JY" target="_blank" rel="noopener noreferrer">Join our Discord
+      server</a>
+    to chat with other users and project maintainers, get help, and
+    stay up-to-date with the latest news and updates. You can also
+    <a href="https://github.com/ZenPrivacy/zen-desktop?tab=readme-ov-file#contributing" target="_blank"
+      rel="noopener noreferrer">contribute to Zen</a>
+    by reporting bugs, suggesting features, or submitting code.
+  </p>
+</section>
+{{ end }}

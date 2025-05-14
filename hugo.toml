@@ -1,0 +1,4 @@
+baseURL = 'https://zenprivacy.net/'
+languageCode = 'en-us'
+title = 'Zen'
+theme = 'zen'

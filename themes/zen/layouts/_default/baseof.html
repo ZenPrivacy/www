@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ .Title }}</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  {{ $style := resources.Get "css/style.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" />
+  {{ if .IsHome }}
+    {{ $indexJS := resources.Get "js/index.js" | js.Build "index.js" | minify | fingerprint }}
+    <script src="{{ $indexJS.Permalink }}" integrity="{{ $indexJS.Data.Integrity }}" type="module" defer></script>
+  {{ end }}
+  <meta property="og:title" content="Zen" />
+  <meta
+    property="og:description"
+    content="Zen is a simple, free and efficient desktop application that helps you browse the internet and use your apps without annoying ads, trackers, or hidden threats."
+  />
+  <meta property="og:image" content="https://zenprivacy.net/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:url" content="https://zenprivacy.net/" />
+  <meta property="og:type" content="website" />
+  <meta name="description"
+    content="Zen is a simple, free and efficient desktop application that helps you browse the internet and use your apps without annoying ads, trackers, or hidden threats." />
+</head>
+
+<body>
+  <div class="dots">
+    <div class="primary-container">
+      <header class="heading">
+        <div class="heading__branding">
+          <svg class="heading__logo" viewBox="0 0 20 20">
+            <title>Zen logo</title>
+            <path
+              d="M10 20c6-3.81 9-9.048 9-15.714-2 0-5-1.429-9-4.286-4 2.857-7 4.286-9 4.286C1 10.952 4 16.19 10 20zm0-17.348c2.577 1.734 4.776 2.88 6.667 3.419-.44 4.627-2.636 8.353-6.667 11.297V2.652z"
+              fill-rule="evenodd"></path>
+          </svg>
+          <h1 class="heading__title">Zen</h1>
+        </div>
+
+        <nav>
+          <ul class="heading__nav-list">
+            <li>
+              <a href="https://github.com/ZenPrivacy/zen-desktop" class="heading__nav-link" target="_blank"
+                rel="noopener noreferrer">GitHub</a>
+            </li>
+            <li>
+              <a href="https://discord.gg/jSzEwby7JY" class="heading__nav-link" target="_blank"
+                rel="noopener noreferrer">Discord</a>
+            </li>
+            <li>
+              <a href="mailto:contact@zenprivacy.net" class="heading__nav-link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main class="content">
+        {{ block "main" . }}{{ end }}
+      </main>
+
+      <footer class="footer">
+        <p>© 2025 Zen Privacy Project Developers</p>
+        <nav>
+          <ul class="footer__nav-list">
+            <li>
+              <a href="mailto:contact@zenprivacy.net" class="footer__nav-list-item">contact@zenprivacy.net</a>
+            </li>
+          </ul>
+        </nav>
+      </footer>
+    </div>
+  </div>
+</body>
+
+</html>
