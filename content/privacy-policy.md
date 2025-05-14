@@ -4,7 +4,7 @@ url = '/privacy-policy'
 description = "Information we collect. TL;DR: We don't."
 +++
 
-This privacy policy applies to **Zen** — a free, open-source desktop ad-blocker and privacy guard. It also covers this website, [zenprivacy.net](https://zenprivacy.net), where we share information and updates about the project.
+This privacy policy applies to **Zen** — a free, open-source desktop ad-blocker and privacy guard. It also covers our website, [zenprivacy.net](https://zenprivacy.net), where we share information and updates about the project.
 
 **Your data is your business. We keep it that way.**
 
