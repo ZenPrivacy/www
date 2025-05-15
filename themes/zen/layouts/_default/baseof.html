@@ -11,15 +11,17 @@
   {{ $style := resources.Get "css/style.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" />
   {{ if .IsHome }}
-    {{ $indexJS := resources.Get "js/index.js" | js.Build "index.js" | minify | fingerprint }}
-    <script src="{{ $indexJS.Permalink }}" integrity="{{ $indexJS.Data.Integrity }}" type="module" defer></script>
+  {{ $indexJS := resources.Get "js/index.js" | js.Build "index.js" | minify | fingerprint }}
+  <script src="{{ $indexJS.Permalink }}" integrity="{{ $indexJS.Data.Integrity }}" type="module" defer></script>
   {{ end }}
 
   <link rel="canonical" href="{{ .Permalink }}">
   {{ if .IsHome }}
     <meta property="og:title" content="Zen" />
-    <meta name="description" content="Zen is a simple, free and efficient desktop application that helps you browse the internet and use your apps without annoying ads, trackers, or hidden threats." />
-    <meta name="og:description" content="Zen is a simple, free and efficient desktop application that helps you browse the internet and use your apps without annoying ads, trackers, or hidden threats." />
+    <meta name="description"
+      content="Zen is a simple, free and efficient desktop application that helps you browse the internet and use your apps without annoying ads, trackers, or hidden threats." />
+    <meta name="og:description"
+      content="Zen is a simple, free and efficient desktop application that helps you browse the internet and use your apps without annoying ads, trackers, or hidden threats." />
     <meta property="og:url" content="https://zenprivacy.net/" />
     <meta property="og:type" content="website" />
   {{ else }}
@@ -61,7 +63,8 @@
                 rel="noopener noreferrer">Discord</a>
             </li>
             <li>
-              <a href="mailto:contact@zenprivacy.net" class="heading__nav-link">Contact</a>
+              <a href="https://opencollective.com/zen-privacy" class="heading__nav-link" target="_blank"
+                rel="noopener noreferrer">Donate</a>
             </li>
           </ul>
         </nav>
@@ -75,15 +78,53 @@
           <div class="footer__section">
             <ul class="footer__nav-list">
               <li class="footer__nav-list-item"><strong>Legal</strong></li>
-              <li class="footer__nav-list-item"><a href="/privacy-policy" class="footer__nav-list-link">Privacy Policy</a></li>
+              <li class="footer__nav-list-item"><a href="/privacy-policy" class="footer__nav-list-link">Privacy
+                  Policy</a></li>
               <li class="footer__nav-list-item"><a href="/terms" class="footer__nav-list-link">Terms of Use</a></li>
-              <li class="footer__nav-list-item"><a href="https://github.com/ZenPrivacy/community/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer" class="footer__nav-list-link">Code of Conduct</a></li>
+              <li class="footer__nav-list-item">
+                <a href="https://github.com/ZenPrivacy/community/blob/main/CODE_OF_CONDUCT.md" target="_blank"
+                  rel="noopener noreferrer" class="footer__nav-list-link">Code of Conduct</a>
+              </li>
+            </ul>
+
+            <ul class="footer__nav-list">
+              <li class="footer__nav-list-item"><strong>Community</strong></li>
+              <li class="footer__nav-list-item">
+                <a href="https://github.com/ZenPrivacy" target="_blank" rel="noopener noreferrer"
+                  class="footer__nav-list-link">GitHub</a>
+              </li>
+              <li class="footer__nav-list-item">
+                <a href="https://bsky.app/profile/zenprivacy.net" target="_blank" rel="noopener noreferrer"
+                  class="footer__nav-list-link">Bluesky</a>
+              </li>
+              <li class="footer__nav-list-item"><a href="https://www.reddit.com/r/zenprivacy/" target="_blank"
+                  rel="noopener noreferrer" class="footer__nav-list-link">Reddit</a>
+              </li>
+              <li class="footer__nav-list-item"><a href="https://discord.gg/jSzEwby7JY" target="_blank"
+                  rel="noopener noreferrer" class="footer__nav-list-link">Discord</a></li>
+              <li class="footer__nav-list-item"><a href="https://opencollective.com/zen-privacy" target="_blank"
+                  rel="noopener noreferrer" class="footer__nav-list-link">Open Collective</a></li>
+            </ul>
+
+            <ul class="footer__nav-list">
+              <li class="footer__nav-list-item"><strong>Contact</strong></li>
+              <li class="footer__nav-list-item"><a href="mailto:contact@zenprivacy.net"
+                  class="footer__nav-list-link">Email</a></li>
+              <li class="footer__nav-list-item"><a
+                  href="https://github.com/ZenPrivacy/zen-desktop/issues/new?template=bug_report.yaml" target="_blank"
+                  rel="noopener noreferrer" class="footer__nav-list-link">Report an issue</a></li>
+              <li class="footer__nav-list-item"><a
+                  href="https://github.com/ZenPrivacy/zen-desktop/blob/master/SECURITY.md" target="_blank"
+                  rel="noopener noreferrer" class="footer__nav-list-link">Security</a></li>
             </ul>
           </div>
 
           <p class="footer__copyright">
-            Copyright © 2025 Zen Privacy Project Developers. Content available under <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener noreferrer" class="footer__copyright-link">CC BY-SA 4.0</a>, unless stated otherwise. <br />
-            Logo based on <a href="https://github.com/palantir/blueprint" target="_blank" rel="noopener noreferrer" class="footer__copyright-link">Blueprint</a> (Apache 2.0).
+            Copyright © 2025 Zen Privacy Project Developers. Content available under <a
+              href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener noreferrer"
+              class="footer__copyright-link">CC BY-SA 4.0</a>, unless stated otherwise. <br />
+            Logo based on <a href="https://github.com/palantir/blueprint" target="_blank" rel="noopener noreferrer"
+              class="footer__copyright-link">Blueprint</a> (Apache 2.0).
           </p>
         </div>
       </footer>
