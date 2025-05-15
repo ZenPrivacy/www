@@ -16,6 +16,8 @@ The Zen desktop application is licensed under the [MIT License](https://github.c
 
 All content published on this website is licensed under the [Creative Commons Attribution–ShareAlike 4.0 International License (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/), unless otherwise noted.
 
+The application icon is derived from [Blueprint](https://github.com/palantir/blueprint), and is licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+
 ## 3. No Warranties
 
 Both this website and the Zen application are provided "as is", without any warranties of any kind — express or implied. This includes, but is not limited to, implied warranties of merchantability, fitness for a particular purpose, and non-infringement.
