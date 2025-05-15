@@ -7,24 +7,31 @@
   <title>{{ .Title }}</title>
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
   {{ $style := resources.Get "css/style.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" />
   {{ if .IsHome }}
     {{ $indexJS := resources.Get "js/index.js" | js.Build "index.js" | minify | fingerprint }}
     <script src="{{ $indexJS.Permalink }}" integrity="{{ $indexJS.Data.Integrity }}" type="module" defer></script>
   {{ end }}
+
   <link rel="canonical" href="{{ .Permalink }}">
-  <meta property="og:title" content="Zen" />
-  <meta
-    property="og:description"
-    content="Zen is a simple, free and efficient desktop application that helps you browse the internet and use your apps without annoying ads, trackers, or hidden threats."
-  />
+  {{ if .IsHome }}
+    <meta property="og:title" content="Zen" />
+    <meta name="description" content="Zen is a simple, free and efficient desktop application that helps you browse the internet and use your apps without annoying ads, trackers, or hidden threats." />
+    <meta name="og:description" content="Zen is a simple, free and efficient desktop application that helps you browse the internet and use your apps without annoying ads, trackers, or hidden threats." />
+    <meta property="og:url" content="https://zenprivacy.net/" />
+    <meta property="og:type" content="website" />
+  {{ else }}
+    <meta property="og:title" content="{{ .Title }}" />
+    <meta name="description" content="{{ .Description }}" />
+    <meta property="og:description" content="{{ .Description }}" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+    <meta property="og:type" content="article" />
+  {{ end }}
+
   <meta property="og:image" content="https://zenprivacy.net/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta property="og:url" content="https://zenprivacy.net/" />
-  <meta property="og:type" content="website" />
-  <meta name="description"
-    content="Zen is a simple, free and efficient desktop application that helps you browse the internet and use your apps without annoying ads, trackers, or hidden threats." />
 </head>
 
 <body>
