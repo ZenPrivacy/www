@@ -316,20 +316,49 @@ article.page {
 }
 
 .footer {
-  padding: .5rem 1rem;
+  padding: 1rem;
   background-color: rgb(23, 74, 144);
-  height: 2rem;
   color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  font-size: 0.875rem;
+}
+
+.footer__section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 48rem) {
+  .footer__section {
+    display: block;
+  }
 }
 
 .footer__nav-list {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .footer__nav-list-item {
+  margin-bottom: .5rem;
+}
+
+.footer__nav-list-link {
   color: #fff;
   text-decoration: none;
+}
+
+.footer__nav-list-link:hover {
+  text-decoration: underline;
+}
+
+.footer__copyright {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  margin-bottom: 0;
+}
+
+.footer__copyright-link {
+  color: #fff;
 }
