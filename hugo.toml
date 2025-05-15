@@ -3,3 +3,4 @@ languageCode = 'en-us'
 title = 'Zen'
 theme = 'zen'
 enableRobotsTXT = true
+disableKinds = ["taxonomy", "term", "RSS"]

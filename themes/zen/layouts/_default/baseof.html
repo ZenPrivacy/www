@@ -11,7 +11,7 @@
   {{ $style := resources.Get "css/style.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" />
   {{ if .IsHome }}
-  {{ $indexJS := resources.Get "js/index.js" | js.Build "index.js" | minify | fingerprint }}
+  {{ $indexJS := resources.Get "js/index.js" | js.Build "js/index.js" | minify | fingerprint }}
   <script src="{{ $indexJS.Permalink }}" integrity="{{ $indexJS.Data.Integrity }}" type="module" defer></script>
   {{ end }}
 

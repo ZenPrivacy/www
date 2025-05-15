@@ -9,9 +9,11 @@ tasks:
   dev:
     desc: Runs Hugo in development mode.
     cmds:
-      - hugo server -D
+      - rm -rf public
+      - hugo server
 
   build:
     desc: Builds the site for production.
     cmds:
+      - rm -rf public
       - hugo
