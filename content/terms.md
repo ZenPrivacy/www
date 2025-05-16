@@ -1,6 +1,6 @@
 +++
 title = "Terms of Use"
-url = "/terms"
+url = "/terms/"
 description = "Legal terms for using this site and the Zen application"
 +++
 

@@ -1,6 +1,6 @@
 +++
 title = 'Our Privacy Policy'
-url = '/privacy-policy'
+url = '/privacy-policy/'
 description = "Information we collect. TL;DR: We don't."
 +++
 
