@@ -340,6 +340,12 @@ article.page {
   margin: 0;
 }
 
+@media (max-width: 48rem) {
+  .footer__nav-list {
+    margin-bottom: 1.5rem;
+  }
+}
+
 .footer__nav-list-item {
   margin-bottom: .5rem;
 }
