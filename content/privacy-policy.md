@@ -75,7 +75,7 @@ You can:
 
 ## Questions? Feedback?
 
-If you have a question, concern, or suggestion — privacy-related or not — email us at [contact@zenprivacy.net](mailto:contact@zenprivacy.net) or drop by our [Discord server](https://discord.gg/jSzEwby7JY).
+If you have a question, concern, or suggestion — privacy-related or not — email us at [{{% param contactEmail %}}](mailto:{{% param contactEmail %}}) or drop by our [Discord server]({{% param discordInviteLink %}}).
 
 Zen is built by a small, independent team that deeply cares about privacy. We're always happy to hear from you.
 

@@ -22,7 +22,7 @@
       content="Zen is a simple, free and efficient desktop application that helps you browse the internet and use your apps without annoying ads, trackers, or hidden threats." />
     <meta name="og:description"
       content="Zen is a simple, free and efficient desktop application that helps you browse the internet and use your apps without annoying ads, trackers, or hidden threats." />
-    <meta property="og:url" content="https://zenprivacy.net/" />
+    <meta property="og:url" content="{{ .Site.BaseURL }}" />
     <meta property="og:type" content="website" />
   {{ else }}
     <meta property="og:title" content="{{ .Title }}" />
@@ -32,7 +32,7 @@
     <meta property="og:type" content="article" />
   {{ end }}
 
-  <meta property="og:image" content="https://zenprivacy.net/og-image.png" />
+  <meta property="og:image" content="{{ urls.JoinPath .Site.BaseURL "/og-image.png" }}" />
   <meta name="twitter:card" content="summary_large_image" />
 </head>
 
@@ -55,15 +55,15 @@
         <nav>
           <ul class="heading__nav-list">
             <li>
-              <a href="https://github.com/ZenPrivacy/zen-desktop" class="heading__nav-link" target="_blank"
+              <a href="{{ .Site.Params.githubLink }}" class="heading__nav-link" target="_blank"
                 rel="noopener noreferrer">GitHub</a>
             </li>
             <li>
-              <a href="https://discord.gg/jSzEwby7JY" class="heading__nav-link" target="_blank"
+              <a href="{{ .Site.Params.discordInviteLink }}" class="heading__nav-link" target="_blank"
                 rel="noopener noreferrer">Discord</a>
             </li>
             <li>
-              <a href="https://opencollective.com/zen-privacy" class="heading__nav-link" target="_blank"
+              <a href="{{ .Site.Params.openCollectiveLink }}" class="heading__nav-link" target="_blank"
                 rel="noopener noreferrer">Donate</a>
             </li>
           </ul>
@@ -82,7 +82,7 @@
                   Policy</a></li>
               <li class="footer__nav-list-item"><a href="/terms" class="footer__nav-list-link">Terms of Use</a></li>
               <li class="footer__nav-list-item">
-                <a href="https://github.com/ZenPrivacy/community/blob/main/CODE_OF_CONDUCT.md" target="_blank"
+                <a href="{{ .Site.Params.codeOfConductLink }}" target="_blank"
                   rel="noopener noreferrer" class="footer__nav-list-link">Code of Conduct</a>
               </li>
             </ul>
@@ -90,37 +90,37 @@
             <ul class="footer__nav-list">
               <li class="footer__nav-list-item"><strong>Community</strong></li>
               <li class="footer__nav-list-item">
-                <a href="https://github.com/ZenPrivacy" target="_blank" rel="noopener noreferrer"
+                <a href="{{ .Site.Params.githubLink }}" target="_blank" rel="noopener noreferrer"
                   class="footer__nav-list-link">GitHub</a>
               </li>
               <li class="footer__nav-list-item">
-                <a href="https://bsky.app/profile/zenprivacy.net" target="_blank" rel="noopener noreferrer"
+                <a href="{{ .Site.Params.blueskyLink }}" target="_blank" rel="noopener noreferrer"
                   class="footer__nav-list-link">Bluesky</a>
               </li>
-              <li class="footer__nav-list-item"><a href="https://www.reddit.com/r/zenprivacy/" target="_blank"
+              <li class="footer__nav-list-item"><a href="{{ .Site.Params.redditLink }}" target="_blank"
                   rel="noopener noreferrer" class="footer__nav-list-link">Reddit</a>
               </li>
-              <li class="footer__nav-list-item"><a href="https://discord.gg/jSzEwby7JY" target="_blank"
+              <li class="footer__nav-list-item"><a href="{{ .Site.Params.discordInviteLink }}" target="_blank"
                   rel="noopener noreferrer" class="footer__nav-list-link">Discord</a></li>
-              <li class="footer__nav-list-item"><a href="https://opencollective.com/zen-privacy" target="_blank"
+              <li class="footer__nav-list-item"><a href="{{ .Site.Params.openCollectiveLink }}" target="_blank"
                   rel="noopener noreferrer" class="footer__nav-list-link">Open Collective</a></li>
             </ul>
 
             <ul class="footer__nav-list">
               <li class="footer__nav-list-item"><strong>Contact</strong></li>
-              <li class="footer__nav-list-item"><a href="mailto:contact@zenprivacy.net"
+              <li class="footer__nav-list-item"><a href="mailto:{{ .Site.Params.contactEmail }}"
                   class="footer__nav-list-link">Email</a></li>
               <li class="footer__nav-list-item"><a
-                  href="https://github.com/ZenPrivacy/zen-desktop/issues/new?template=bug_report.yaml" target="_blank"
-                  rel="noopener noreferrer" class="footer__nav-list-link">Report an issue</a></li>
+                  href="{{ .Site.Params.githubReportIssueLink }}" target="_blank"
+                  rel="noopener noreferrer" class="footer__nav-list-link">Report an issue on GitHub</a></li>
               <li class="footer__nav-list-item"><a
-                  href="https://github.com/ZenPrivacy/zen-desktop/blob/master/SECURITY.md" target="_blank"
+                  href="{{ .Site.Params.securityPolicyLink }}" target="_blank"
                   rel="noopener noreferrer" class="footer__nav-list-link">Security</a></li>
             </ul>
           </div>
 
           <p class="footer__copyright">
-            Copyright © 2025 Zen Privacy Project Developers. Content available under <a
+            Copyright © {{ now.Year }} Zen Privacy Project Developers. Content available under <a
               href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener noreferrer"
               class="footer__copyright-link">CC BY-SA 4.0</a>, unless stated otherwise. <br />
             Logo based on <a href="https://github.com/palantir/blueprint" target="_blank" rel="noopener noreferrer"
