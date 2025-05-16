@@ -1,0 +1,4 @@
+Contact: mailto:security@zenprivacy.net
+Expires: 2026-05-15T07:00:00.000Z
+Preferred-Languages: en
+Policy: https://github.com/ZenPrivacy/zen-desktop/blob/master/SECURITY.md

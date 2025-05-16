@@ -1,0 +1,17 @@
+baseURL = 'https://zenprivacy.net/'
+languageCode = 'en-us'
+title = 'Zen'
+theme = 'zen'
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term", "RSS"]
+
+[params]
+  discordInviteLink = 'https://discord.gg/jSzEwby7JY'
+  githubLink = 'https://github.com/ZenPrivacy/zen-desktop'
+  openCollectiveLink = 'https://opencollective.com/zen-privacy'
+  blueskyLink = 'https://bsky.app/profile/zenprivacy.net'
+  redditLink = 'https://www.reddit.com/r/zenprivacy/'
+  githubReportIssueLink = 'https://github.com/ZenPrivacy/zen-desktop/issues/new?template=bug_report.yaml'
+  securityPolicyLink = 'https://github.com/ZenPrivacy/zen-desktop/blob/master/SECURITY.md'
+  codeOfConductLink = 'https://github.com/ZenPrivacy/community/blob/main/CODE_OF_CONDUCT.md'
+  contactEmail = 'contact@zenprivacy.net'
