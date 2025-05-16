@@ -6,8 +6,6 @@ description = "Legal terms for using this site and the Zen application"
 
 By accessing this website ([zenprivacy.net](https://zenprivacy.net)) or downloading and running the Zen application ('Zen'), you agree to the following terms.
 
----
-
 ## 1. Software License
 
 The Zen desktop application is licensed under the [MIT License](https://github.com/ZenPrivacy/zen-desktop/blob/master/LICENSE). You are free to use, modify, and distribute it under those terms. See the GitHub repository for full details.
