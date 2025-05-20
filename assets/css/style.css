@@ -41,6 +41,17 @@ article.page {
   display: none;
 }
 
+.code-block {
+  background: #f3f3f3;
+  padding: .6rem;
+  border: 1px solid #ccc;
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  font-size: .9rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .dots {
   background-image: radial-gradient(#333 .5px, transparent 0px);
   background-repeat: repeat;
