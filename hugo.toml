@@ -3,7 +3,7 @@ languageCode = 'en-us'
 title = 'Zen'
 theme = 'zen'
 enableRobotsTXT = true
-disableKinds = ["taxonomy", "term", "RSS"]
+disableKinds = ["taxonomy", "term"]
 
 [params]
   discordInviteLink = 'https://discord.gg/jSzEwby7JY'
@@ -15,3 +15,12 @@ disableKinds = ["taxonomy", "term", "RSS"]
   securityPolicyLink = 'https://github.com/ZenPrivacy/zen-desktop/blob/master/SECURITY.md'
   codeOfConductLink = 'https://github.com/ZenPrivacy/community/blob/main/CODE_OF_CONDUCT.md'
   contactEmail = 'contact@zenprivacy.net'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[outputs]
+  home = ["HTML"]
+  section = ["HTML", "RSS"]

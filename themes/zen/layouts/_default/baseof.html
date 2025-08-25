@@ -10,6 +10,12 @@
 
   {{ $style := resources.Get "css/style.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" />
+
+  {{ if strings.HasPrefix .RelPermalink "/blog" }}
+    {{ $blogCSS := resources.Get "css/blog.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $blogCSS.Permalink }}" integrity="{{ $blogCSS.Data.Integrity }}">
+  {{ end }}
+
   {{ if .IsHome }}
   {{ $indexJS := resources.Get "js/index.js" | js.Build "js/index.js" | minify | fingerprint }}
   <script src="{{ $indexJS.Permalink }}" integrity="{{ $indexJS.Data.Integrity }}" type="module" defer></script>
@@ -19,9 +25,9 @@
   {{ if .IsHome }}
     <meta property="og:title" content="Zen" />
     <meta name="description"
-      content="Zen is a simple, free and efficient desktop application that helps you browse the internet and use your apps without annoying ads, trackers, or hidden threats." />
+      content="Zen is a simple, free and efficient desktop ad-blocker that helps you browse the internet and use your apps without annoying ads, trackers, or hidden threats." />
     <meta name="og:description"
-      content="Zen is a simple, free and efficient desktop application that helps you browse the internet and use your apps without annoying ads, trackers, or hidden threats." />
+      content="Zen is a simple, free and efficient desktop ad-blocker that helps you browse the internet and use your apps without annoying ads, trackers, or hidden threats." />
     <meta property="og:url" content="{{ .Site.BaseURL }}" />
     <meta property="og:type" content="website" />
   {{ else }}
@@ -32,8 +38,16 @@
     <meta property="og:type" content="article" />
   {{ end }}
 
-  <meta property="og:image" content="{{ urls.JoinPath .Site.BaseURL "/og-image.png" }}" />
+  {{ if .Params.image }}
+    <meta property="og:image" content="{{ urls.JoinPath .Site.BaseURL .Params.image }}" />
+  {{ else }}
+    <meta property="og:image" content="{{ urls.JoinPath .Site.BaseURL "/og-image.png" }}" />
+  {{ end }}
+
+  
   <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="alternate" type="application/rss+xml" title="Zen" href="{{ urls.JoinPath .Site.BaseURL "/blog/index.xml" }}" />
 </head>
 
 <body>
@@ -61,6 +75,9 @@
             <li>
               <a href="{{ .Site.Params.discordInviteLink }}" class="heading__nav-link" target="_blank"
                 rel="noopener noreferrer">Discord</a>
+            </li>
+            <li>
+              <a href="/blog" class="heading__nav-link" rel="noopener noreferrer">Blog</a>
             </li>
             <li>
               <a href="{{ .Site.Params.openCollectiveLink }}" class="heading__nav-link" target="_blank"
