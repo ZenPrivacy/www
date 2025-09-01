@@ -1,5 +1,5 @@
 +++
-date = '2025-08-26T01:00:00+05:00'
+date = '2025-09-01T01:00:00+05:00'
 draft = false
 author = 'Ansar Smagul'
 authorURL = 'https://bsky.app/profile/anfragment.net'
@@ -84,4 +84,4 @@ If you work in tech, help challenge the idea that "the ad model is fine". Learn 
 
 Lastly, here's the truth: the system of extraction and surveillance we have in tech right now is unprecedented, but that's what makes it brittle. And brittle things don't bend; they shatter. What comes next will depend on us.
 
-<div class="thankyou"><strong>Thank you</strong> [Zhanerke Beisetay](https://www.linkedin.com/in/itsnoterke/) and [Jutta Jerlich](https://www.linkedin.com/in/juttajerlich/) for reviewing early drafts of this.</div>
+<div class="thankyou"><strong>Thank you</strong> <a href="https://www.linkedin.com/in/itsnoterke/" rel="noreferrer noopener" target="_blank">Zhanerke Beisetay</a> and <a href="https://www.linkedin.com/in/juttajerlich/" rel="noreferrer noopener" target="_blank">Jutta Jerlich</a> for reviewing early drafts of this.</div>
