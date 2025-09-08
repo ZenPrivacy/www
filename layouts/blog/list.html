@@ -1,0 +1,13 @@
+{{ define "main" }}
+<h1>Blog</h1>
+<ul>
+  {{ range .Pages.ByDate.Reverse }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <small>({{ .Date.Format "Jan 2, 2006" }})</small>
+    </li>
+  {{ end }}
+</ul>
+
+<p><a href="/blog/index.xml" target="_blank">Subscribe via RSS</a></p>
+{{ end }}
