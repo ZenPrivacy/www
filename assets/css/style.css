@@ -112,6 +112,11 @@ article.page {
   fill: #fff;
 }
 
+.heading__zen {
+  height: 1rem;
+  fill: #fff;
+}
+
 .heading__title {
   font-weight: 900;
   text-transform: uppercase;
@@ -153,11 +158,11 @@ article.page {
 
 .hero__title {
   text-wrap: balance;
+  font-weight: 600;
 }
 
 .hero__tag {
   display: inline-block;
-  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
   font-weight: normal;
   font-weight: 400;
   font-size: .8rem;
