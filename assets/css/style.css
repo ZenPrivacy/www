@@ -1,6 +1,8 @@
-html, body {
+html,
+body {
   background: #f6f6ef;
-  font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+  font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans',
+    Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -22,7 +24,7 @@ article.page {
   font-size: 1rem;
   background-color: #efefef;
   color: #000;
-  padding: .4rem .8rem .4rem .8rem;
+  padding: 0.4rem 0.8rem 0.4rem 0.8rem;
   cursor: pointer;
   user-select: none;
   text-align: center;
@@ -43,17 +45,18 @@ article.page {
 
 .code-block {
   background: #f3f3f3;
-  padding: .6rem;
+  padding: 0.6rem;
   border: 1px solid #ccc;
-  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
-  font-size: .9rem;
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
+    'DejaVu Sans Mono', monospace;
+  font-size: 0.9rem;
   border-radius: 4px;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
 .dots {
-  background-image: radial-gradient(#333 .5px, transparent 0px);
+  background-image: radial-gradient(#333 0.5px, transparent 0px);
   background-repeat: repeat;
   background-size: 1rem 1rem;
   background-position: center;
@@ -75,7 +78,7 @@ article.page {
 
 .heading {
   display: flex;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   justify-content: space-between;
   align-items: center;
   background-color: #174a90;
@@ -87,15 +90,16 @@ article.page {
 }
 
 .heading__branding {
-  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
+    'DejaVu Sans Mono', monospace;
   font-weight: 900;
-  margin: .3rem 0;
+  margin: 0.3rem 0;
   display: flex;
   align-items: center;
-  gap: .25rem;
+  gap: 0.25rem;
 }
 
-.heading__logo  {
+.heading__logo {
   height: 1.5rem;
   width: 1.5rem;
   fill: #fff;
@@ -146,33 +150,34 @@ article.page {
 
 .hero__tag {
   display: inline-block;
-  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
+    'DejaVu Sans Mono', monospace;
   font-weight: normal;
   font-weight: 400;
-  font-size: .8rem;
+  font-size: 0.8rem;
   line-height: 1.2rem;
-  padding-right: .2rem;
-  padding-left: .3rem;
-  letter-spacing: .1rem;
+  padding-right: 0.2rem;
+  padding-left: 0.3rem;
+  letter-spacing: 0.1rem;
   text-transform: uppercase;
-  border: .1rem solid #000;
+  border: 0.1rem solid #000;
 }
 
 .hero__tag--gold {
   background-color: #ffb700;
 }
 
-@media (color-gamut:p3) {
+@media (color-gamut: p3) {
   .hero__tag--gold {
-    background-color: color(display-p3 .985 .766 0);
+    background-color: color(display-p3 0.985 0.766 0);
   }
 }
 
 .hero__tag--blue {
-  background-color: #7999E4;
+  background-color: #7999e4;
 }
 
-@media (color-gamut:p3) {
+@media (color-gamut: p3) {
   .hero__tag--blue {
     background-color: color(display-p3 0.52 0.661 0.99);
   }
@@ -182,7 +187,7 @@ article.page {
   background-color: #fb618f;
 }
 
-@media (color-gamut:p3) {
+@media (color-gamut: p3) {
   .hero__tag--cerise {
     background-color: color(display-p3 0.965 0.42 0.582);
   }
@@ -195,7 +200,7 @@ article.page {
 .hero__cta {
   display: flex;
   align-items: center;
-  gap: .5rem;
+  gap: 0.5rem;
   margin-top: 2rem;
 }
 
@@ -212,7 +217,7 @@ article.page {
   color: #fff;
 }
 
-@media (color-gamut:p3) {
+@media (color-gamut: p3) {
   .hero__download-btn {
     background-color: color(display-p3 0 0.605 0.377);
   }
@@ -244,10 +249,10 @@ article.page {
 }
 
 .screenshot__caption {
-  font-size: .85rem;
+  font-size: 0.85rem;
   text-align: center;
   color: #666;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   text-wrap: balance;
 }
 
@@ -264,15 +269,14 @@ article.page {
 }
 
 .features-list {
-  list-style-type: square;
-  list-style-position: inside;
+  list-style-type: none;
   padding-left: 0;
   margin-top: 0;
 }
 
 .feature__title {
   font-size: 1rem;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   display: inline;
 }
 
@@ -292,7 +296,7 @@ article.page {
 }
 
 .downloads-list__item {
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 }
 
 .downloads-list__link {
@@ -314,9 +318,9 @@ article.page {
   background-color: #002b6b;
 }
 
-@media (color-gamut:p3) {
+@media (color-gamut: p3) {
   .downloads-list__btn {
-    background-color: color(display-p3 0 .283 .665);
+    background-color: color(display-p3 0 0.283 0.665);
   }
 }
 
@@ -358,7 +362,7 @@ article.page {
 }
 
 .footer__nav-list-item {
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .footer__nav-list-link {
