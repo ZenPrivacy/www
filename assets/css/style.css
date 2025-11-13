@@ -1,6 +1,17 @@
+:root {
+  font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1;
+  font-variation-settings: 'opsz' 24;
+}
+
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: InterVariable, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+  }
+}
+
 html, body {
   background: #f6f6ef;
-  font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -101,6 +112,11 @@ article.page {
   fill: #fff;
 }
 
+.heading__zen {
+  height: 1rem;
+  fill: #fff;
+}
+
 .heading__title {
   font-weight: 900;
   text-transform: uppercase;
@@ -142,11 +158,11 @@ article.page {
 
 .hero__title {
   text-wrap: balance;
+  font-weight: 600;
 }
 
 .hero__tag {
   display: inline-block;
-  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
   font-weight: normal;
   font-weight: 400;
   font-size: .8rem;
