@@ -16,6 +16,10 @@ html, body {
   padding: 0;
 }
 
+button {
+  font: inherit;
+}
+
 h1 {
   font-size: 2rem;
 }
