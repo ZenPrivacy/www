@@ -195,7 +195,7 @@ article.page {
   background-color: #fff;
 }
 
-@media (max-width: 64rem) {
+@media (max-width: 60rem) {
   .primary-container {
     margin: 0;
     border: 0;
