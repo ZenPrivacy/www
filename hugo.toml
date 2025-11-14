@@ -9,7 +9,7 @@ disableKinds = ["taxonomy", "term"]
   discordInviteLink = 'https://discord.gg/jSzEwby7JY'
   githubLink = 'https://github.com/ZenPrivacy/zen-desktop'
   openCollectiveLink = 'https://opencollective.com/zen-privacy'
-  blueskyLink = 'https://bsky.app/profile/zenprivacy.net'
+  blueskyLink = 'https://bsky.app/profile/zen.irbis.sh'
   redditLink = 'https://www.reddit.com/r/zenprivacy/'
   githubReportIssueLink = 'https://github.com/ZenPrivacy/zen-desktop/issues/new?template=bug_report.yaml'
   securityPolicyLink = 'https://github.com/ZenPrivacy/zen-desktop/blob/master/SECURITY.md'
