@@ -55,21 +55,28 @@
 
 <body>
   <div class="dots">
-    <div class="primary-container">
-      <header class="heading">
-        <a href="/" class="heading__branding-link">
-          <div class="heading__branding">
-            <svg class="heading__logo" viewBox="0 0 20 20">
-              <path
-                d="M10 20c6-3.81 9-9.048 9-15.714-2 0-5-1.429-9-4.286-4 2.857-7 4.286-9 4.286C1 10.952 4 16.19 10 20zm0-17.348c2.577 1.734 4.776 2.88 6.667 3.419-.44 4.627-2.636 8.353-6.667 11.297V2.652z" />
-            </svg>
-            <svg class="heading__zen" viewBox="0 0 50 20">
-              <path d="m13.47372,19.88457l-10.26839,0c-1.04007,0 -1.83432,-0.24206 -2.38273,-0.72612c-0.5484,-0.48409 -0.82261,-1.11712 -0.82261,-1.89909c0,-0.78198 0.29311,-1.60118 0.87934,-2.45764l7.94241,-11.33866l-8.25443,0l0,-3.46305l12.90641,0l0,3.07206l-9.21887,13.34946l9.21887,0l0,3.46305zm16.7883,0l-7.14825,0c-2.26915,0 -3.86712,-0.38169 -4.79373,-1.14504c-0.9077,-0.78198 -1.36155,-2.15045 -1.36155,-4.10537l0,-14.63415l13.30353,0l0,3.46305l-9.36063,0l0,4.66392l6.55238,0l-0.28364,3.46305l-6.26873,0l0,2.76485c0,0.78198 0.17964,1.32192 0.5389,1.61981c0.35926,0.29789 1.01171,0.44684 1.95711,0.44684l6.86461,0l0,3.46305zm19.61396,-19.88456l0,17.87377c0,0.6144 -0.18896,1.14504 -0.56729,1.59188c-0.37812,0.42822 -0.82255,0.64232 -1.33326,0.64232c-1.30468,0 -2.37316,-0.74473 -3.20523,-2.23421l-6.97795,-10.75219l0,12.76298l-3.94283,0l0,-19.88456l3.80091,0l8.28283,13.01434l0,-13.01434l3.94282,0z" />
-            </svg>
+    <header class="heading">
+      <div class="heading__inner">
+        <div class="heading__left">
+          <a href="/">
+            <div class="heading__branding">
+              <svg class="heading__logo" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M10 20c6-3.81 9-9.048 9-15.714-2 0-5-1.429-9-4.286-4 2.857-7 4.286-9 4.286C1 10.952 4 16.19 10 20zm0-17.348c2.577 1.734 4.776 2.88 6.667 3.419-.44 4.627-2.636 8.353-6.667 11.297V2.652z" />
+              </svg>
+              <svg class="heading__zen" viewBox="0 0 55 21" xmlns="http://www.w3.org/2000/svg">
+                <path d="m13.51,19.82l-10.3,0c-1.04,0 -1.84,-0.24 -2.39,-0.72c-0.55,-0.48 -0.82,-1.11 -0.82,-1.89c0,-0.78 0.29,-1.6 0.88,-2.45l7.96,-11.31l-8.27,0l0,-3.45l12.94,0l0,3.06l-9.24,13.31l9.24,0l0,3.45l0,0zm16.83,0l-7.17,0c-2.27,0 -3.88,-0.38 -4.8,-1.14c-0.91,-0.78 -1.37,-2.14 -1.37,-4.09l0,-14.59l13.34,0l0,3.45l-9.39,0l0,4.65l6.57,0l-0.28,3.45l-6.29,0l0,2.76c0,0.78 0.18,1.32 0.54,1.62c0.36,0.29 1.02,0.44 1.97,0.44l6.88,0l0,3.45l0,0zm19.66,-19.82l0,17.82c0,0.61 -0.19,1.14 -0.57,1.59c-0.38,0.42 -0.82,0.64 -1.33,0.64c-1.31,0 -2.38,-0.75 -3.22,-2.23l-6.99,-10.72l0,12.72l-3.96,0l0,-19.82l3.81,0l8.31,12.97l0,-12.97l3.95,0l0,0z" />
+              </svg>
+            </div>
+          </a>
+    
+          <div class="heading__mode-switch">
+            <a href="/" class="heading__mode-link heading__mode-link--active">Personal</a>
+            <a href="https://zen.irbis.sh/enterprise" class="heading__mode-link" target="_blank">Enterprise</a>
           </div>
-        </a>
-
-        <nav>
+        </div>
+    
+        <nav class="heading__nav">
           <ul class="heading__nav-list">
             <li>
               <a href="{{ .Site.Params.githubLink }}" class="heading__nav-link" target="_blank"
@@ -88,7 +95,9 @@
             </li>
           </ul>
         </nav>
-      </header>
+      </div>
+    </header>
+    <div class="primary-container">
       <main class="content">
         {{ block "main" . }}{{ end }}
       </main>
@@ -140,7 +149,7 @@
           </div>
 
           <p class="footer__copyright">
-            Copyright © {{ now.Year }} Zen Privacy Project Developers. Content available under <a
+            Copyright © {{ now.Year }} Zen Project Developers. Content available under <a
               href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener noreferrer"
               class="footer__copyright-link">CC BY-SA 4.0</a>, unless stated otherwise. <br />
             Logo based on <a href="https://github.com/palantir/blueprint" target="_blank" rel="noopener noreferrer"
