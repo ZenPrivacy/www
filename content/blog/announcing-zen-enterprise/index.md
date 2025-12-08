@@ -8,8 +8,8 @@ description = "We're announcing Zen Enterprise – a fast, lightweight, and priv
 image = '/blog/announcing-zen-enterprise/og-image.jpg'
 +++
 
-<div style="display: flex">
-  <img src="banner.jpg" style="max-width: 48rem; margin: 0 auto" />
+<div style="display: flex;">
+  <img src="banner.jpg" style="max-width: 48rem; margin: 0 auto;" />
 </div>
 
 Today, we're excited to announce __Zen Enterprise__ – a fast, lightweight, and privacy-first way for organizations to protect their teams from ads, trackers, and web-based threats.
