@@ -206,6 +206,12 @@ article.page {
   padding: 1rem 1.5rem;
 }
 
+@media (max-width: 48rem) {
+  .content {
+    padding: 1rem;
+  }
+}
+
 .hero {
   display: grid;
   grid-template-columns: 3fr 2fr;
