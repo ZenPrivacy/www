@@ -98,19 +98,19 @@
             <div class="heading__nav-list-social">
               <li>
                 <a href="{{ .Site.Params.githubLink }}" class="heading__nav-link" target="_blank"
-                  rel="noopener noreferrer">{{ readFile "static/icons/github.svg" | safeHTML }}</a>
+                  rel="noopener noreferrer" aria-label="GitHub">{{ readFile "static/icons/github.svg" | safeHTML }}</a>
               </li>
               <li>
                 <a href="{{ .Site.Params.blueskyLink }}" class="heading__nav-link" target="_blank"
-                  rel="noopener noreferrer">{{ readFile "static/icons/bluesky.svg" | safeHTML }}</a>
+                  rel="noopener noreferrer" aria-label="Bluesky">{{ readFile "static/icons/bluesky.svg" | safeHTML }}</a>
               </li>
               <li>
                 <a href="{{ .Site.Params.redditLink }}" class="heading__nav-link" target="_blank"
-                  rel="noopener noreferrer">{{ readFile "static/icons/reddit.svg" | safeHTML }}</a>
+                  rel="noopener noreferrer" aria-label="Reddit">{{ readFile "static/icons/reddit.svg" | safeHTML }}</a>
               </li>
               <li>
                 <a href="{{ .Site.Params.discordInviteLink }}" class="heading__nav-link" target="_blank"
-                  rel="noopener noreferrer">{{ readFile "static/icons/discord.svg" | safeHTML }}</a>
+                  rel="noopener noreferrer" aria-label="Discord">{{ readFile "static/icons/discord.svg" | safeHTML }}</a>
               </li>
             </div>
           </ul>
