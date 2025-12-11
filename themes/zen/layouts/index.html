@@ -53,7 +53,7 @@
   <figure class="screenshot">
     {{ with resources.Get "images/index/main-page-screenshot.png" }}
       {{ $img := . | fingerprint }}
-      <img src="{{ $img.Permalink }}" alt="Screenshot of Zen's main page" class="screenshot__image" />
+      <img src="{{ $img.RelPermalink }}" alt="Screenshot of Zen's main page" class="screenshot__image" />
     {{ end }}
 
     <figcaption class="screenshot__caption">
@@ -69,7 +69,7 @@
     <figure class="screenshot">
       {{ with resources.Get "images/index/regional-filters-screenshot.png" }}
         {{ $img := . | fingerprint }}
-        <img src="{{ $img.Permalink }}" alt="Screenshot of Zen's Filter lists page" class="screenshot__image" />
+        <img src="{{ $img.RelPermalink }}" alt="Screenshot of Zen's Filter lists page" class="screenshot__image" />
       {{ end }}
 
       <figcaption class="screenshot__caption">
