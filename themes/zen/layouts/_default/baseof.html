@@ -8,23 +8,22 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
-  {{ $inter := resources.Get "css/inter.css" | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $inter.RelPermalink }}" integrity="{{ $inter.Data.Integrity }}" />
-
-  {{ $style := resources.Get "css/style.css" | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" />
-
-  {{ if strings.HasPrefix .RelPermalink "/blog" }}
-    {{ $blogCSS := resources.Get "css/blog.css" | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $blogCSS.RelPermalink }}" integrity="{{ $blogCSS.Data.Integrity }}">
+  {{ with resources.Get "css/inter.css" | minify }}
+    <style>{{ .Content | safeCSS }}</style>
   {{ end }}
 
-  {{ $menuJS := resources.Get "js/menu.js" | js.Build "js/menu.js" | minify | fingerprint }}
-  <script src="{{ $menuJS.RelPermalink }}" integrity="{{ $menuJS.Data.Integrity }}" type="module" defer></script>
+  {{ with resources.Get "css/style.css" | minify }}
+    <style>{{ .Content | safeCSS }}</style>
+  {{ end }}
 
-  {{ if .IsHome }}
-  {{ $indexJS := resources.Get "js/index.js" | js.Build "js/index.js" | minify | fingerprint }}
-  <script src="{{ $indexJS.RelPermalink }}" integrity="{{ $indexJS.Data.Integrity }}" type="module" defer></script>
+  {{ if strings.HasPrefix .RelPermalink "/blog" }}
+    {{ with resources.Get "css/blog.css" | minify }}
+      <style>{{ .Content | safeCSS }}</style>
+    {{ end }}
+  {{ end }}
+
+  {{ with resources.Get "js/index.js" | minify }}  
+    <script>{{ .Content | safeJS }}</script>  
   {{ end }}
 
   <link rel="canonical" href="{{ .Permalink }}">
