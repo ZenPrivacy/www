@@ -8,20 +8,22 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
-  {{ $inter := resources.Get "css/inter.css" | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $inter.Permalink }}" integrity="{{ $inter.Data.Integrity }}" />
-
-  {{ $style := resources.Get "css/style.css" | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" />
-
-  {{ if strings.HasPrefix .RelPermalink "/blog" }}
-    {{ $blogCSS := resources.Get "css/blog.css" | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $blogCSS.Permalink }}" integrity="{{ $blogCSS.Data.Integrity }}">
+  {{ with resources.Get "css/inter.css" | minify }}
+    <style>{{ .Content | safeCSS }}</style>
   {{ end }}
 
-  {{ if .IsHome }}
-  {{ $indexJS := resources.Get "js/index.js" | js.Build "js/index.js" | minify | fingerprint }}
-  <script src="{{ $indexJS.Permalink }}" integrity="{{ $indexJS.Data.Integrity }}" type="module" defer></script>
+  {{ with resources.Get "css/style.css" | minify }}
+    <style>{{ .Content | safeCSS }}</style>
+  {{ end }}
+
+  {{ if strings.HasPrefix .RelPermalink "/blog" }}
+    {{ with resources.Get "css/blog.css" | minify }}
+      <style>{{ .Content | safeCSS }}</style>
+    {{ end }}
+  {{ end }}
+
+  {{ with resources.Get "js/index.js" | minify }}  
+    <script>{{ .Content | safeJS }}</script>  
   {{ end }}
 
   <link rel="canonical" href="{{ .Permalink }}">
@@ -76,16 +78,13 @@
           </div>
         </div>
     
+        <button class="heading__hamburger" aria-label="Menu" aria-expanded="false">
+          <span class="heading__hamburger-line"></span>
+          <span class="heading__hamburger-line"></span>
+        </button>
+
         <nav class="heading__nav">
           <ul class="heading__nav-list">
-            <li>
-              <a href="{{ .Site.Params.githubLink }}" class="heading__nav-link" target="_blank"
-                rel="noopener noreferrer">GitHub</a>
-            </li>
-            <li>
-              <a href="{{ .Site.Params.discordInviteLink }}" class="heading__nav-link" target="_blank"
-                rel="noopener noreferrer">Discord</a>
-            </li>
             <li>
               <a href="/blog/" class="heading__nav-link" rel="noopener noreferrer">Blog</a>
             </li>
@@ -93,10 +92,56 @@
               <a href="{{ .Site.Params.openCollectiveLink }}" class="heading__nav-link" target="_blank"
                 rel="noopener noreferrer">Donate</a>
             </li>
+
+            <div class="heading__nav-list-separator" aria-hidden="true"></div>
+
+            <div class="heading__nav-list-social">
+              <li>
+                <a href="{{ .Site.Params.githubLink }}" class="heading__nav-link" target="_blank"
+                  rel="noopener noreferrer" aria-label="GitHub">{{ readFile "static/icons/github.svg" | safeHTML }}</a>
+              </li>
+              <li>
+                <a href="{{ .Site.Params.blueskyLink }}" class="heading__nav-link" target="_blank"
+                  rel="noopener noreferrer" aria-label="Bluesky">{{ readFile "static/icons/bluesky.svg" | safeHTML }}</a>
+              </li>
+              <li>
+                <a href="{{ .Site.Params.redditLink }}" class="heading__nav-link" target="_blank"
+                  rel="noopener noreferrer" aria-label="Reddit">{{ readFile "static/icons/reddit.svg" | safeHTML }}</a>
+              </li>
+              <li>
+                <a href="{{ .Site.Params.discordInviteLink }}" class="heading__nav-link" target="_blank"
+                  rel="noopener noreferrer" aria-label="Discord">{{ readFile "static/icons/discord.svg" | safeHTML }}</a>
+              </li>
+            </div>
           </ul>
         </nav>
       </div>
     </header>
+
+    <div class="mobile-menu">
+      <nav class="mobile-menu__nav">
+        <ul class="mobile-menu__list">
+          <li class="mobile-menu__item">
+            <a href="/blog/" class="mobile-menu__link" rel="noopener noreferrer">Blog</a>
+          </li>
+          <li class="mobile-menu__item">
+            <a href="{{ .Site.Params.openCollectiveLink }}" class="mobile-menu__link" target="_blank"
+              rel="noopener noreferrer">Donate</a>
+          </li>
+        </ul>
+
+        <div class="mobile-menu__social">
+          <a href="{{ .Site.Params.githubLink }}" class="mobile-menu__social-link" target="_blank"
+            rel="noopener noreferrer" aria-label="GitHub">{{ readFile "static/icons/github.svg" | safeHTML }}</a>
+          <a href="{{ .Site.Params.blueskyLink }}" class="mobile-menu__social-link" target="_blank"
+            rel="noopener noreferrer" aria-label="Bluesky">{{ readFile "static/icons/bluesky.svg" | safeHTML }}</a>
+          <a href="{{ .Site.Params.redditLink }}" class="mobile-menu__social-link" target="_blank"
+            rel="noopener noreferrer" aria-label="Reddit">{{ readFile "static/icons/reddit.svg" | safeHTML }}</a>
+          <a href="{{ .Site.Params.discordInviteLink }}" class="mobile-menu__social-link" target="_blank"
+            rel="noopener noreferrer" aria-label="Discord">{{ readFile "static/icons/discord.svg" | safeHTML }}</a>
+        </div>
+      </nav>
+    </div>
     <div class="primary-container">
       <main class="content">
         {{ block "main" . }}{{ end }}
