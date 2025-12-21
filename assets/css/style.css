@@ -413,6 +413,88 @@ article.page {
 
 .hero__description {
   font-size: 1rem;
+  margin: 1rem 0 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.hero__description-item {
+  position: relative;
+  padding-left: 1.5rem;
+  line-height: 1.5rem;
+  text-wrap: balance;
+}
+
+.hero__description-item::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #00aa6b;
+  font-weight: 700;
+}
+
+.hero__platforms {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  flex-wrap: wrap;
+  margin: 1rem 0 0 0;
+}
+
+.hero__platform-icons {
+  display: inline-flex;
+  align-items: center;
+  gap: .2rem;
+}
+
+.hero__works-with {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  flex-wrap: wrap;
+  margin: .5rem 0 0 0;
+}
+
+.hero__works-icons {
+  display: inline-flex;
+  align-items: center;
+  gap: .2rem;
+}
+
+.hero__platform-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background: #9ca3af33;
+  border-radius: 6px;
+}
+
+.hero__platform-icon svg, .hero__platform-icon img {
+  width: 1rem;
+  height: auto;
+}
+
+.hero__platform-icon--windows svg, .hero__platform-icon--apple svg,
+.hero__platform-icon--windows svg *, .hero__platform-icon--apple svg * {
+  fill: currentColor !important;
+}
+
+.hero__platform-icon--windows {
+  color: #3376cd;
+}
+
+.hero__platform-icon--apple {
+  color: #000;
+}
+
+.hero__platform-icon--apple svg {
+  width: 0.9rem;
+  height: auto;
 }
 
 .hero__cta {
@@ -462,8 +544,8 @@ article.page {
 .screenshot__image {
   width: 20rem;
   height: auto;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  border-radius: 9px;
 }
 
 .screenshot__caption {

@@ -2,63 +2,103 @@
 <section id="hero" class="hero">
   <div class="hero__content">
     <h2 class="hero__title">
-      Simple, free and efficient ad-blocker and privacy guard for
-      Windows, macOS and Linux
+      System-wide ad-blocking and privacy protection for your entire computer
     </h2>
 
-    <div>
-      <span class="hero__tag">Free</span>
-      <span class="hero__tag hero__tag--blue">Privacy Guard</span>
-      <span class="hero__tag hero__tag--cerise">Ad-blocker</span>
-      <span class="hero__tag hero__tag--gold">Open Source</span>
-    </div>
+    <ul class="hero__description" aria-label="Key benefits">
+      <li class="hero__description-item">Blocks ads and trackers across all browsers and apps</li>
+      <li class="hero__description-item">Works quietly in the background – no extensions needed</li>
+      <li class="hero__description-item">Free, open source, and privacy-respecting</li>
+    </ul>
 
-    <p class="hero__description">
-      Zen is a simple and powerful desktop application that helps you
-      <strong>browse the internet and use your apps without annoying ads,
-        trackers, or hidden threats</strong>. It works quietly in the background, blocking unwanted content
-      across your entire computer – not just in your web browser, but in
-      your other apps too. Zen comes ready to protect you with
-      built-in filters, and you can easily customize it to suit your
-      needs. Whether you're looking for a cleaner, faster, and more
-      private online experience, or just want to stop invasive
-      tracking, Zen has you covered. Available for
-      <strong>Windows, macOS, and Linux</strong>. Free and open
-      source, forever.
+    <p class="hero__platforms">
+      Available for
+      <span class="hero__platform-icons" aria-label="Windows, macOS, and Linux">
+      <span class="hero__platform-icon hero__platform-icon--windows" aria-label="Windows">
+        {{ with resources.Get "images/index/windows.svg" }}
+        <img src="{{ .RelPermalink }}" alt="Windows icon" loading="lazy" decoding="async">
+        {{ end }}
+      </span>
+      <span class="hero__platform-icon hero__platform-icon--apple" aria-label="macOS">
+        {{ with resources.Get "images/index/apple.svg" }}
+        <img src="{{ .RelPermalink }}" alt="Apple icon" loading="lazy" decoding="async">
+        {{ end }}
+      </span>
+      <span class="hero__platform-icon hero__platform-icon--linux" aria-label="Linux">
+        {{ with resources.Get "images/index/linux.svg" }}
+        <img src="{{ .RelPermalink }}" alt="Linux's Tux" loading="lazy" decoding="async">
+        {{ end }}
+      </span>
+      </span>
+    </p>
+
+    <p class="hero__works-with">
+      Works with
+      <span class="hero__works-icons" aria-label="Chrome, Firefox, Safari, and Edge">
+        <span class="hero__platform-icon hero__works-icon hero__works-icon--chrome" aria-label="Chrome">
+          {{ with resources.Get "images/index/chrome.svg" }}
+          <img src="{{ .RelPermalink }}" alt="Chrome icon" loading="lazy" decoding="async">
+          {{ end }}
+        </span>
+        <span class="hero__platform-icon hero__works-icon hero__works-icon--firefox" aria-label="Firefox">
+          {{ with resources.Get "images/index/firefox.svg" }}
+          <img src="{{ .RelPermalink }}" alt="Firefox icon" loading="lazy" decoding="async">
+          {{ end }}
+        </span>
+        <span class="hero__platform-icon hero__works-icon hero__works-icon--safari" aria-label="Safari">
+          {{ with resources.Get "images/index/safari.svg" }}
+          <img src="{{ .RelPermalink }}" alt="Safari icon" loading="lazy" decoding="async">
+          {{ end }}
+        </span>
+        <span class="hero__platform-icon hero__works-icon hero__works-icon--edge" aria-label="Edge">
+          {{ with resources.Get "images/index/edge.svg" }}
+          <img src="{{ .RelPermalink }}" alt="Edge icon" loading="lazy" decoding="async">
+          {{ end }}
+        </span>
+      </span>
+      and more
     </p>
 
     <div class="hero__cta">
       <a href="#downloads-windows" class="hidden" data-os="windows">
         <button class="btn hero__download-btn">
-          Get Zen for Windows
+          Download Zen for Windows
         </button>
       </a>
       <a href="#downloads-macos" class="hidden" data-os="macos">
         <button class="btn hero__download-btn">
-          Get Zen for macOS
+          Download Zen for macOS
         </button>
       </a>
       <a href="#downloads-linux" class="hidden" data-os="linux">
         <button class="btn hero__download-btn">
-          Get Zen for Linux
+          Download Zen for Linux
         </button>
       </a>
       <a href="#downloads" data-os="other">
-        <button class="btn hero__download-btn">Get Zen</button>
+        <button class="btn hero__download-btn">Download Zen</button>
       </a>
       <a href="#downloads" class="hidden" data-os="identified">and other platforms</a>
     </div>
   </div>
 
   <figure class="screenshot">
-    {{ with resources.Get "images/index/main-page-screenshot.png" }}
-      {{ $img := . | fingerprint }}
-      <img src="{{ $img.RelPermalink }}" alt="Screenshot of Zen's main page" class="screenshot__image" />
-    {{ end }}
+    <picture>
+      {{ with resources.Get "images/index/main-page-dark.jpg" | fingerprint }}
+        <source srcset="{{ .RelPermalink }}" media="(prefers-color-scheme: dark)" type="image/jpeg" />
+      {{ end }}
+      {{ with resources.Get "images/index/main-page-light.jpg" | fingerprint }}
+        <img
+          src="{{ .RelPermalink }}"
+          alt="Screenshot of Zen's main page"
+          class="screenshot__image"
+          loading="lazy"
+          decoding="async" />
+      {{ end }}
+    </picture>
 
     <figcaption class="screenshot__caption">
-      Zen in action: the main page. Each request can be inspected to
-      see which filter and rule blocked it.
+      See what Zen blocks in real time – ads, trackers, and hidden requests across your system.
     </figcaption>
   </figure>
 </section>
@@ -67,10 +107,19 @@
   <h2>Features</h2>
   <div class="features-container">
     <figure class="screenshot">
-      {{ with resources.Get "images/index/regional-filters-screenshot.png" }}
-        {{ $img := . | fingerprint }}
-        <img src="{{ $img.RelPermalink }}" alt="Screenshot of Zen's Filter lists page" class="screenshot__image" />
+      <picture>
+      {{ with resources.Get "images/index/regional-dark.jpg" | fingerprint }}
+        <source srcset="{{ .RelPermalink }}" media="(prefers-color-scheme: dark)" type="image/jpeg" />
       {{ end }}
+      {{ with resources.Get "images/index/regional-light.jpg" | fingerprint }}
+        <img
+          src="{{ .RelPermalink }}"
+          alt="Screenshot of Zen's Filter lists page"
+          class="screenshot__image"
+          loading="lazy"
+          decoding="async" />
+      {{ end }}
+    </picture>
 
       <figcaption class="screenshot__caption">
         Zen comes with many filters, with the ability to add your own.
