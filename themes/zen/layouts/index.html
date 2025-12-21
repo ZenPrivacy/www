@@ -5,59 +5,71 @@
       System-wide ad-blocking and privacy protection for your entire computer
     </h2>
 
-    <ul class="hero__description" aria-label="Key benefits">
-      <li class="hero__description-item">Blocks ads and trackers across all browsers and apps</li>
+    <p class="hero__proof">
+      <span>75k+ downloads</span>
+      
+      <span aria-hidden="true"> · </span>
+      <a href="{{ .Site.Params.githubLink }}" target="_blank" rel="noopener noreferrer">
+        3.7k+ GitHub stars
+      </a>
+    </p>
+
+    <ul class="hero__description">
+      <li class="hero__description-item">Blocks ads and trackers across all browsers and many apps</li>
       <li class="hero__description-item">Works quietly in the background – no extensions needed</li>
       <li class="hero__description-item">Free, open source, and privacy-respecting</li>
     </ul>
 
-    <p class="hero__platforms">
-      Available for
-      <span class="hero__platform-icons" aria-label="Windows, macOS, and Linux">
-      <span class="hero__platform-icon hero__platform-icon--windows" aria-label="Windows">
-        {{ with resources.Get "images/index/windows.svg" }}
-        <img src="{{ .RelPermalink }}" alt="Windows icon" loading="lazy" decoding="async">
-        {{ end }}
-      </span>
-      <span class="hero__platform-icon hero__platform-icon--apple" aria-label="macOS">
-        {{ with resources.Get "images/index/apple.svg" }}
-        <img src="{{ .RelPermalink }}" alt="Apple icon" loading="lazy" decoding="async">
-        {{ end }}
-      </span>
-      <span class="hero__platform-icon hero__platform-icon--linux" aria-label="Linux">
-        {{ with resources.Get "images/index/linux.svg" }}
-        <img src="{{ .RelPermalink }}" alt="Linux's Tux" loading="lazy" decoding="async">
-        {{ end }}
-      </span>
-      </span>
-    </p>
+    <div class="hero__compat">
+      <p class="hero__platforms">
+        Available for
+        <span class="hero__platform-icons" aria-label="Windows, macOS, and Linux">
+          <span class="hero__platform-icon hero__platform-icon--windows" aria-label="Windows">
+            {{ with resources.Get "images/index/windows.svg" }}
+            <img src="{{ .RelPermalink }}" alt="Windows icon" loading="lazy" decoding="async">
+            {{ end }}
+          </span>
+          <span class="hero__platform-icon hero__platform-icon--apple" aria-label="macOS">
+            {{ with resources.Get "images/index/apple.svg" }}
+            <img src="{{ .RelPermalink }}" alt="Apple icon" loading="lazy" decoding="async">
+            {{ end }}
+          </span>
+          <span class="hero__platform-icon hero__platform-icon--linux" aria-label="Linux">
+            {{ with resources.Get "images/index/linux.svg" }}
+            <img src="{{ .RelPermalink }}" alt="Linux's Tux" loading="lazy" decoding="async">
+            {{ end }}
+          </span>
+        </span>
+      </p>
 
-    <p class="hero__works-with">
-      Works with
-      <span class="hero__works-icons" aria-label="Chrome, Firefox, Safari, and Edge">
-        <span class="hero__platform-icon hero__works-icon hero__works-icon--chrome" aria-label="Chrome">
-          {{ with resources.Get "images/index/chrome.svg" }}
-          <img src="{{ .RelPermalink }}" alt="Chrome icon" loading="lazy" decoding="async">
-          {{ end }}
+      <span class="hero__compat-divider" aria-hidden="true"></span>
+
+      <p class="hero__works-with">
+        Works with
+        <span class="hero__works-icons" aria-label="Chrome, Firefox, Safari, and Edge">
+          <span class="hero__platform-icon hero__works-icon hero__works-icon--chrome" aria-label="Chrome">
+            {{ with resources.Get "images/index/chrome.svg" }}
+            <img src="{{ .RelPermalink }}" alt="Chrome icon" loading="lazy" decoding="async">
+            {{ end }}
+          </span>
+          <span class="hero__platform-icon hero__works-icon hero__works-icon--firefox" aria-label="Firefox">
+            {{ with resources.Get "images/index/firefox.svg" }}
+            <img src="{{ .RelPermalink }}" alt="Firefox icon" loading="lazy" decoding="async">
+            {{ end }}
+          </span>
+          <span class="hero__platform-icon hero__works-icon hero__works-icon--safari" aria-label="Safari">
+            {{ with resources.Get "images/index/safari.svg" }}
+            <img src="{{ .RelPermalink }}" alt="Safari icon" loading="lazy" decoding="async">
+            {{ end }}
+          </span>
+          <span class="hero__platform-icon hero__works-icon hero__works-icon--edge" aria-label="Edge">
+            {{ with resources.Get "images/index/edge.svg" }}
+            <img src="{{ .RelPermalink }}" alt="Edge icon" loading="lazy" decoding="async">
+            {{ end }}
+          </span>
         </span>
-        <span class="hero__platform-icon hero__works-icon hero__works-icon--firefox" aria-label="Firefox">
-          {{ with resources.Get "images/index/firefox.svg" }}
-          <img src="{{ .RelPermalink }}" alt="Firefox icon" loading="lazy" decoding="async">
-          {{ end }}
-        </span>
-        <span class="hero__platform-icon hero__works-icon hero__works-icon--safari" aria-label="Safari">
-          {{ with resources.Get "images/index/safari.svg" }}
-          <img src="{{ .RelPermalink }}" alt="Safari icon" loading="lazy" decoding="async">
-          {{ end }}
-        </span>
-        <span class="hero__platform-icon hero__works-icon hero__works-icon--edge" aria-label="Edge">
-          {{ with resources.Get "images/index/edge.svg" }}
-          <img src="{{ .RelPermalink }}" alt="Edge icon" loading="lazy" decoding="async">
-          {{ end }}
-        </span>
-      </span>
-      and more
-    </p>
+      </p>
+    </div>
 
     <div class="hero__cta">
       <a href="#downloads-windows" class="hidden" data-os="windows">
@@ -78,8 +90,11 @@
       <a href="#downloads" data-os="other">
         <button class="btn hero__download-btn">Download Zen</button>
       </a>
-      <a href="#downloads" class="hidden" data-os="identified">and other platforms</a>
     </div>
+
+    <p class="hero__cta-note">
+      <span>Free · Open source · No account required</span>
+    </p>
   </div>
 
   <figure class="screenshot">
