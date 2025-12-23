@@ -590,16 +590,6 @@ article.page {
   display: inline;
 }
 
-.feature__description {
-  text-wrap: balance;
-}
-
-@media (max-width: 48rem) {
-  .feature__description {
-    text-wrap: normal;
-  }
-}
-
 .downloads-list {
   list-style-type: none;
   padding-left: 0;
