@@ -11,7 +11,7 @@
   --color-bg-button: #efefef;
   --color-bg-platform-icon: oklch(96.7% 0.003 264.542);
   --color-primary: oklch(0.41 0.13 258);
-  --color-primary-muted: oklch(0.3 0.13 258);
+  --color-primary-muted: oklch(0.35 0.13 258);
   --color-success: #00aa6b;
   --color-success-hover: #005f3b;
   --color-success-active: #004c30;
@@ -31,7 +31,7 @@
   --color-overlay-separator: rgba(255, 255, 255, 0.4);
   --color-overlay-muted: rgba(255, 255, 255, 0.7);
   --color-divider: rgba(0, 0, 0, 0.14);
-  --color-button-secondary: #00449e;
+  --color-button-secondary: #0047ab;
   --color-button-secondary-hover: #00337b;
   --color-button-secondary-active: #002b6b;
 
@@ -66,6 +66,7 @@
   --transition-menu: 0.4s cubic-bezier(0.52, 0.16, 0.04, 1);
 
   /* Typography */
+  --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
   --font-size-xl: 1.125rem;
@@ -364,7 +365,7 @@ article.page {
 }
 
 .heading__mode-link {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   padding: 0.15rem 0.7rem;
   border-radius: var(--radius-full);
   text-decoration: none;
@@ -559,7 +560,7 @@ article.page {
 
 .hero__cta-note {
   margin-top: .6rem;
-  font-size: .8rem;
+  font-size: var(--font-size-xs);
   color: var(--color-text-muted);
   text-wrap: balance;
 }
@@ -653,6 +654,8 @@ article.page {
 }
 
 .downloads-list {
+  display: flex;
+  gap: var(--spacing-sm);
   list-style-type: none;
   padding-left: 0;
 }
@@ -680,16 +683,32 @@ article.page {
   background-color: var(--color-button-secondary-active);
 }
 
-@media (color-gamut:p3) {
+/* @media (color-gamut:p3) {
   .downloads-list__btn {
     background-color: color(display-p3 0 .283 .665);
   }
+} */
+
+.downloads__note {
+  color: var(--color-text-muted);
 }
 
-.downloads-list__btn-icon {
-  color: var(--color-text-inverse);
-  height: var(--spacing-lg);
-  width: auto;
+details.faq__question summary {
+  list-style: none;
+  cursor: pointer;
+  &::after {
+    content: "＋";
+    color: var(--color-text-muted);
+    font-family: ui-monospace;
+    margin-left: var(--spacing-xs);
+  }
+  [open] &::after {
+    content: "－";
+  }
+}
+
+.faq__answer {
+  margin-top: var(--spacing-sm);
 }
 
 .footer {
