@@ -6,16 +6,14 @@
   /* Colors */
   --color-bg-page: #f6f6ef;
   --color-bg-primary: #fff;
-  --color-bg-secondary: #efefef;
-  --color-bg-code: #f3f3f3;
   --color-bg-button: #efefef;
-  --color-bg-platform-icon: oklch(96.7% 0.003 264.542);
+  --color-bg-platform-icon: oklch(0.97 0.003 2642);
   --color-primary: oklch(0.41 0.13 258);
   --color-primary-muted: oklch(0.35 0.13 258);
   --color-success: oklch(0.59 0.18 161);
-  --color-text-primary: oklch(12.9% 0.042 264.695);
-  --color-text-secondary: oklch(27.9% 0.041 260.031);
-  --color-text-muted: oklch(37.2% 0.044 257.287);
+  --color-text-primary: oklch(0.13 0.042 265);
+  --color-text-secondary: oklch(0.28 0.042 260);
+  --color-text-muted: oklch(0.37 0.042 257);
   --color-text-inverse: hsla(0 0% 100%);
   --color-border: #000;
   --color-dots: #333;
