@@ -17,10 +17,10 @@
       <h2 class="hero__title">
         System-wide ad-blocking and privacy protection for your entire computer
       </h2>
-  
+
       <p class="hero__proof">
         <span>75k+ downloads</span>
-  
+
         <span aria-hidden="true"> · </span>
         <a
           href="{{ .Site.Params.githubLink }}"
@@ -30,7 +30,7 @@
           3.7k+ GitHub stars
         </a>
       </p>
-  
+
       <ul class="hero__description">
         <li class="hero__description-item">
           Blocks ads and trackers across all browsers and many apps
@@ -42,7 +42,7 @@
           Free, open source, and privacy-respecting
         </li>
       </ul>
-  
+
       <div class="hero__compat">
         <p class="hero__platforms">
           Available for
@@ -91,9 +91,9 @@
             </span>
           </span>
         </p>
-  
+
         <span class="hero__compat-divider" aria-hidden="true"></span>
-  
+
         <p class="hero__works-with">
           Works with
           <span
@@ -155,10 +155,12 @@
           </span>
         </p>
       </div>
-  
+
       <div class="hero__cta">
         <a href="#downloads-windows" class="hidden" data-os="windows">
-          <button class="btn hero__download-btn">Download Zen for Windows</button>
+          <button class="btn hero__download-btn">
+            Download Zen for Windows
+          </button>
         </a>
         <a href="#downloads-macos" class="hidden" data-os="macos">
           <button class="btn hero__download-btn">Download Zen for macOS</button>
@@ -170,10 +172,10 @@
           <button class="btn hero__download-btn">Download Zen</button>
         </a>
       </div>
-  
+
       <p class="hero__cta-note">Free · Open source · No account required</p>
     </div>
-  
+
     <figure class="screenshot">
       <picture>
         {{ with resources.Get "images/index/main-page-dark.jpg" | fingerprint }}
@@ -193,7 +195,7 @@
         />
         {{ end }}
       </picture>
-  
+
       <figcaption class="screenshot__caption">
         See what Zen blocks in real time – ads, trackers, and hidden requests
         across your system.
@@ -206,7 +208,8 @@
     <div class="features-container">
       <figure class="screenshot">
         <picture>
-          {{ with resources.Get "images/index/regional-dark.jpg" | fingerprint }}
+          {{ with resources.Get "images/index/regional-dark.jpg" | fingerprint
+          }}
           <source
             srcset="{{ .RelPermalink }}"
             media="(prefers-color-scheme: dark)"
@@ -297,9 +300,9 @@
       </li>
     </ul>
     <p class="downloads__note">
-      Unsure which version to download? Click on 'Start' and type 'View processor
-      info'. The 'System type' field under 'Device specifications' will tell you
-      which one you need.
+      Unsure which version to download? Click on 'Start' and type 'View
+      processor info'. The 'System type' field under 'Device specifications'
+      will tell you which one you need.
     </p>
 
     <h3 id="downloads-macos">macOS</h3>
@@ -390,8 +393,8 @@
         rel="noopener noreferrer"
         >Join our Discord server</a
       >
-      to get help from maintainers and other users, share feedback, and stay up to
-      date with releases. If you'd like to contribute, you can also
+      to get help from maintainers and other users, share feedback, and stay up
+      to date with releases. If you'd like to contribute, you can also
       <a
         href="https://github.com/ZenPrivacy/zen-desktop?tab=readme-ov-file#contributing"
         target="_blank"
@@ -407,7 +410,9 @@
     <ol class="faq__list">
       <li class="faq__item">
         <details class="faq__question">
-          <summary class="faq__summary">Why does Zen need to install a certificate?</summary>
+          <summary class="faq__summary">
+            Why does Zen need to install a certificate?
+          </summary>
           <p class="faq__answer">
             During the first run, Zen may prompt you to install a local root
             certificate. This enables HTTPS filtering so Zen can block ads and
@@ -446,40 +451,49 @@
       </li>
       <li class="faq__item">
         <details class="faq__question">
-          <summary class="faq__summary">Does Zen slow down my computer or internet?</summary>
+          <summary class="faq__summary">
+            Does Zen slow down my computer or internet?
+          </summary>
           <p class="faq__answer">
-            Zen is designed to be efficient and lightweight. All filtering happens
-            locally on your device, and for most users the performance impact is
-            negligible. In many cases, blocking ads and trackers can actually
-            improve page load times and reduce data usage.
+            Zen is designed to be efficient and lightweight. All filtering
+            happens locally on your device, and for most users the performance
+            impact is negligible. In many cases, blocking ads and trackers can
+            actually improve page load times and reduce data usage.
           </p>
         </details>
       </li>
       <li class="faq__item">
         <details class="faq__question">
-          <summary class="faq__summary">Can Zen break websites or apps?</summary>
+          <summary class="faq__summary">
+            Can Zen break websites or apps?
+          </summary>
           <p class="faq__answer">
-            Like any ad-blocking tool, Zen can occasionally interfere with certain
-            sites or apps. When that happens, you can easily disable filtering for
-            a specific site, or adjust the filter lists. Zen aims to minimize
-            breakage while giving you control when needed.
+            Like any ad-blocking tool, Zen can occasionally interfere with
+            certain sites or apps. When that happens, you can easily disable
+            filtering for a specific site, or adjust the filter lists. Zen aims
+            to minimize breakage while giving you control when needed.
           </p>
         </details>
       </li>
       <li class="faq__item">
         <details class="faq__question">
-          <summary class="faq__summary">How is Zen different from browser ad-blockers?</summary>
+          <summary class="faq__summary">
+            How is Zen different from browser ad-blockers?
+          </summary>
           <p class="faq__answer">
             Browser ad-blockers operate within a single browser and only affect
-            traffic inside that browser. Zen runs at the system level, allowing it
-            to apply the same filtering rules across all browsers and supported
-            desktop apps, without requiring per-browser configuration.
+            traffic inside that browser. Zen runs at the system level, allowing
+            it to apply the same filtering rules across all browsers and
+            supported desktop apps – including applications that embed
+            web content or perform unwanted background tracking.
           </p>
         </details>
       </li>
       <li class="faq__item">
         <details class="faq__question">
-          <summary class="faq__summary">How is Zen different from DNS-level ad-blockers?</summary>
+          <summary class="faq__summary">
+            How is Zen different from DNS-level ad-blockers?
+          </summary>
           <p class="faq__answer">
             DNS-level ad-blockers work by blocking entire domains before a
             connection is made. This approach is simple and fast, but it cannot
@@ -487,10 +501,10 @@
             domain.
           </p>
           <p class="faq__answer">
-            Zen operates at the HTTP(S) level, which allows it to inspect requests
-            and responses and apply more precise filtering rules. This enables
-            finer-grained blocking with fewer false positives and capabilities
-            that are not possible at the DNS level.
+            Zen operates at the HTTP(S) level, which allows it to inspect
+            requests and responses and apply more precise filtering rules. This
+            enables finer-grained blocking with fewer false positives and
+            capabilities that are not possible at the DNS level.
           </p>
         </details>
       </li>
