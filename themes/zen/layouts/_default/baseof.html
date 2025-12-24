@@ -22,9 +22,13 @@
     {{ end }}
   {{ end }}
 
+  {{ block "page-styles" . }}{{ end }}
+
   {{ with resources.Get "js/index.js" | minify }}  
     <script>{{ .Content | safeJS }}</script>  
   {{ end }}
+
+  {{ block "page-scripts" . }}{{ end }}
 
   <link rel="canonical" href="{{ .Permalink }}">
   {{ if .IsHome }}
