@@ -14,6 +14,8 @@ disableKinds = ["taxonomy", "term"]
   githubReportIssueLink = 'https://github.com/ZenPrivacy/zen-desktop/issues/new?template=bug_report.yaml'
   securityPolicyLink = 'https://github.com/ZenPrivacy/zen-desktop/blob/master/SECURITY.md'
   codeOfConductLink = 'https://github.com/ZenPrivacy/community/blob/main/CODE_OF_CONDUCT.md'
+  wingetLink = 'https://docs.irbis.sh/docs/personal/reference/install-winget/'
+  homebrewLink = 'https://docs.irbis.sh/docs/personal/reference/install-homebrew/'
   contactEmail = 'contact@zenprivacy.net'
 
 [markup]

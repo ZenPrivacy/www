@@ -1,214 +1,515 @@
+{{ define "page-styles" }}
+  {{ with resources.Get "css/index.css" | minify }}
+    <style>{{ .Content | safeCSS }}</style>
+  {{ end }}
+{{ end }}
+
+{{ define "page-scripts" }}
+  {{ with resources.Get "js/index-page.js" | minify }}
+    <script>{{ .Content | safeJS }}</script>
+  {{ end }}
+{{ end }}
+
 {{ define "main" }}
-<section id="hero" class="hero">
-  <div class="hero__content">
-    <h2 class="hero__title">
-      Simple, free and efficient ad-blocker and privacy guard for
-      Windows, macOS and Linux
-    </h2>
+<div class="index">
+  <section id="hero" class="hero">
+    <div class="hero__content">
+      <h2 class="hero__title">
+        System-wide ad-blocking and privacy protection for your entire computer
+      </h2>
 
-    <div>
-      <span class="hero__tag">Free</span>
-      <span class="hero__tag hero__tag--blue">Privacy Guard</span>
-      <span class="hero__tag hero__tag--cerise">Ad-blocker</span>
-      <span class="hero__tag hero__tag--gold">Open Source</span>
+      <p class="hero__proof">
+        <span>75k+ downloads</span>
+
+        <span aria-hidden="true"> · </span>
+        <a
+          href="{{ .Site.Params.githubLink }}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          3.7k+ GitHub stars
+        </a>
+      </p>
+
+      <ul class="hero__description">
+        <li class="hero__description-item">
+          Blocks ads and trackers across all browsers and many apps
+        </li>
+        <li class="hero__description-item">
+          Works quietly in the background – no extensions needed
+        </li>
+        <li class="hero__description-item">
+          Free, open source, and privacy-respecting
+        </li>
+      </ul>
+
+      <div class="hero__compat">
+        <p class="hero__platforms">
+          Available for
+          <span
+            class="hero__platform-icons"
+            aria-label="Windows, macOS, and Linux"
+          >
+            <span
+              class="hero__platform-icon hero__platform-icon--windows"
+              aria-label="Windows"
+            >
+              {{ with resources.Get "images/index/windows.svg" }}
+              <img
+                src="{{ .RelPermalink }}"
+                alt="Windows icon"
+                loading="lazy"
+                decoding="async"
+              />
+              {{ end }}
+            </span>
+            <span
+              class="hero__platform-icon hero__platform-icon--apple"
+              aria-label="macOS"
+            >
+              {{ with resources.Get "images/index/apple.svg" }}
+              <img
+                src="{{ .RelPermalink }}"
+                alt="Apple icon"
+                loading="lazy"
+                decoding="async"
+              />
+              {{ end }}
+            </span>
+            <span
+              class="hero__platform-icon hero__platform-icon--linux"
+              aria-label="Linux"
+            >
+              {{ with resources.Get "images/index/linux.svg" }}
+              <img
+                src="{{ .RelPermalink }}"
+                alt="Linux's Tux"
+                loading="lazy"
+                decoding="async"
+              />
+              {{ end }}
+            </span>
+          </span>
+        </p>
+
+        <span class="hero__compat-divider" aria-hidden="true"></span>
+
+        <p class="hero__works-with">
+          Works with
+          <span
+            class="hero__works-icons"
+            aria-label="Chrome, Firefox, Safari, and Edge"
+          >
+            <span
+              class="hero__platform-icon hero__works-icon hero__works-icon--chrome"
+              aria-label="Chrome"
+            >
+              {{ with resources.Get "images/index/chrome.svg" }}
+              <img
+                src="{{ .RelPermalink }}"
+                alt="Chrome icon"
+                loading="lazy"
+                decoding="async"
+              />
+              {{ end }}
+            </span>
+            <span
+              class="hero__platform-icon hero__works-icon hero__works-icon--firefox"
+              aria-label="Firefox"
+            >
+              {{ with resources.Get "images/index/firefox.svg" }}
+              <img
+                src="{{ .RelPermalink }}"
+                alt="Firefox icon"
+                loading="lazy"
+                decoding="async"
+              />
+              {{ end }}
+            </span>
+            <span
+              class="hero__platform-icon hero__works-icon hero__works-icon--safari"
+              aria-label="Safari"
+            >
+              {{ with resources.Get "images/index/safari.svg" }}
+              <img
+                src="{{ .RelPermalink }}"
+                alt="Safari icon"
+                loading="lazy"
+                decoding="async"
+              />
+              {{ end }}
+            </span>
+            <span
+              class="hero__platform-icon hero__works-icon hero__works-icon--edge"
+              aria-label="Edge"
+            >
+              {{ with resources.Get "images/index/edge.svg" }}
+              <img
+                src="{{ .RelPermalink }}"
+                alt="Edge icon"
+                loading="lazy"
+                decoding="async"
+              />
+              {{ end }}
+            </span>
+          </span>
+        </p>
+      </div>
+
+      <div class="hero__cta">
+        <a href="#downloads-windows" class="hidden" data-os="windows">
+          <button class="btn hero__download-btn">
+            Download Zen for Windows
+          </button>
+        </a>
+        <a href="#downloads-macos" class="hidden" data-os="macos">
+          <button class="btn hero__download-btn">Download Zen for macOS</button>
+        </a>
+        <a href="#downloads-linux" class="hidden" data-os="linux">
+          <button class="btn hero__download-btn">Download Zen for Linux</button>
+        </a>
+        <a href="#downloads" data-os="other">
+          <button class="btn hero__download-btn">Download Zen</button>
+        </a>
+      </div>
+
+      <p class="hero__cta-note">Free · Open source · No account required</p>
     </div>
 
-    <p class="hero__description">
-      Zen is a simple and powerful desktop application that helps you
-      <strong>browse the internet and use your apps without annoying ads,
-        trackers, or hidden threats</strong>. It works quietly in the background, blocking unwanted content
-      across your entire computer – not just in your web browser, but in
-      your other apps too. Zen comes ready to protect you with
-      built-in filters, and you can easily customize it to suit your
-      needs. Whether you're looking for a cleaner, faster, and more
-      private online experience, or just want to stop invasive
-      tracking, Zen has you covered. Available for
-      <strong>Windows, macOS, and Linux</strong>. Free and open
-      source, forever.
-    </p>
-
-    <div class="hero__cta">
-      <a href="#downloads-windows" class="hidden" data-os="windows">
-        <button class="btn hero__download-btn">
-          Get Zen for Windows
-        </button>
-      </a>
-      <a href="#downloads-macos" class="hidden" data-os="macos">
-        <button class="btn hero__download-btn">
-          Get Zen for macOS
-        </button>
-      </a>
-      <a href="#downloads-linux" class="hidden" data-os="linux">
-        <button class="btn hero__download-btn">
-          Get Zen for Linux
-        </button>
-      </a>
-      <a href="#downloads" data-os="other">
-        <button class="btn hero__download-btn">Get Zen</button>
-      </a>
-      <a href="#downloads" class="hidden" data-os="identified">and other platforms</a>
-    </div>
-  </div>
-
-  <figure class="screenshot">
-    {{ with resources.Get "images/index/main-page-screenshot.png" }}
-      {{ $img := . | fingerprint }}
-      <img src="{{ $img.RelPermalink }}" alt="Screenshot of Zen's main page" class="screenshot__image" />
-    {{ end }}
-
-    <figcaption class="screenshot__caption">
-      Zen in action: the main page. Each request can be inspected to
-      see which filter and rule blocked it.
-    </figcaption>
-  </figure>
-</section>
-
-<section id="features" class="features">
-  <h2>Features</h2>
-  <div class="features-container">
     <figure class="screenshot">
-      {{ with resources.Get "images/index/regional-filters-screenshot.png" }}
-        {{ $img := . | fingerprint }}
-        <img src="{{ $img.RelPermalink }}" alt="Screenshot of Zen's Filter lists page" class="screenshot__image" />
-      {{ end }}
+      <picture>
+        {{ with resources.Get "images/index/main-page-dark.jpg" | fingerprint }}
+        <source
+          srcset="{{ .RelPermalink }}"
+          media="(prefers-color-scheme: dark)"
+          type="image/jpeg"
+        />
+        {{ end }} {{ with resources.Get "images/index/main-page-light.jpg" |
+        fingerprint }}
+        <img
+          src="{{ .RelPermalink }}"
+          alt="Screenshot of Zen's main page"
+          class="screenshot__image"
+          loading="lazy"
+          decoding="async"
+        />
+        {{ end }}
+      </picture>
 
       <figcaption class="screenshot__caption">
-        Zen comes with many filters, with the ability to add your own.
+        See what Zen blocks in real time – ads, trackers, and hidden requests
+        across your system.
       </figcaption>
     </figure>
+  </section>
 
-    <ul class="features-list">
-      <li class="feature">
-        <h3 class="feature__title">Replaces many tools with one</h3>
-        <p class="feature__description">
-          Forget countless browser extensions, hosts files, and other
-          tools. Zen works across all your browsers and many desktop
-          apps, with no configuration needed.
-        </p>
+  <section id="features" class="features main-section">
+    <h2>Why Zen?</h2>
+    <div class="features-container">
+      <figure class="screenshot">
+        <picture>
+          {{ with resources.Get "images/index/regional-dark.jpg" | fingerprint
+          }}
+          <source
+            srcset="{{ .RelPermalink }}"
+            media="(prefers-color-scheme: dark)"
+            type="image/jpeg"
+          />
+          {{ end }} {{ with resources.Get "images/index/regional-light.jpg" |
+          fingerprint }}
+          <img
+            src="{{ .RelPermalink }}"
+            alt="Screenshot of Zen's Filter lists page"
+            class="screenshot__image"
+            loading="lazy"
+            decoding="async"
+          />
+          {{ end }}
+        </picture>
+
+        <figcaption class="screenshot__caption">
+          Zen comes with many filters, with the ability to add your own.
+        </figcaption>
+      </figure>
+
+      <ul class="features-list">
+        <li class="feature">
+          <h3 class="feature__title">Powerful built-in filters</h3>
+          <p class="feature__description">
+            Pre-configured filter lists for ads, tracking, and security, plus
+            regional lists for your language or country. Add your own lists and
+            rules – Zen supports all popular filter list formats.
+          </p>
+        </li>
+
+        <li class="feature">
+          <h3 class="feature__title">Replaces many tools with one</h3>
+          <p class="feature__description">
+            One app instead of extensions, hosts files, and manual setup. Works
+            automatically across all browsers and many desktop apps.
+          </p>
+        </li>
+
+        <li class="feature">
+          <h3 class="feature__title">Privacy without trade-offs</h3>
+          <p class="feature__description">
+            Free and
+            <a
+              href="{{ .Site.Params.githubLink }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              >open source</a
+            >. Fast and lightweight, with zero tracking or data collection.
+          </p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="downloads">
+    <h2>Downloads</h2>
+
+    <h3 id="downloads-windows">Windows</h3>
+    <ul class="downloads-list">
+      <li class="downloads-list__item">
+        <a
+          href="https://github.com/ZenPrivacy/zen-desktop/releases/latest/download/Zen-amd64-installer.exe"
+          rel="noopener noreferrer"
+          class="downloads-list__link"
+          ><button class="btn downloads-list__btn">⤓ x64</button></a
+        >
       </li>
-      <li class="feature">
-        <h3 class="feature__title">
-          Comes with powerful built-in filters
-        </h3>
-        <p class="feature__description">
-          Zen comes with powerful pre-configured filters for ads,
-          privacy, security and malware. It also includes 36 regional
-          filters for your country or language. Want more protection?
-          Easily add your own filters and rules – Zen supports all
-          popular filter formats.
-        </p>
+      <li class="downloads-list__item">
+        <a
+          href="https://github.com/ZenPrivacy/zen-desktop/releases/latest/download/Zen-arm64-installer.exe"
+          rel="noopener noreferrer"
+          class="downloads-list__link"
+          ><button class="btn downloads-list__btn">⤓ ARM64</button></a
+        >
       </li>
-      <li class="feature">
-        <h3 class="feature__title">No compromises</h3>
-        <p class="feature__description">
-          Zen is free and
-          <a href="{{ .Site.Params.githubLink }}" target="_blank" rel="noopener noreferrer">open source</a>.
-          It's built to be fast, efficient, and lightweight. The
-          app itself respects your privacy, and doesn't track you or
-          collect any data. Built with love and care by a small team
-          of passionate developers.
-        </p>
+      <li class="downloads-list__item">
+        <a
+          href="{{ .Site.Params.wingetLink }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="downloads-list__link"
+          ><button class="btn downloads-list__btn">
+            WinGet (community) ↗
+          </button></a
+        >
       </li>
     </ul>
-  </div>
-</section>
+    <p class="downloads__note">
+      Unsure which version to download? Click on 'Start' and type 'View
+      processor info'. The 'System type' field under 'Device specifications'
+      will tell you which one you need.
+    </p>
 
-<section id="downloads">
-  <h2>Downloads</h2>
-  <p>
-    During the first run, Zen will prompt you to install a root
-    certificate. This is required for Zen to be able to intercept and
-    modify HTTPS requests. This certificate is generated locally and
-    never leaves your device.
-  </p>
+    <h3 id="downloads-macos">macOS</h3>
+    <ul class="downloads-list">
+      <li class="downloads-list__item">
+        <a
+          href="https://github.com/ZenPrivacy/zen-desktop/releases/latest/download/Zen-amd64.dmg"
+          rel="noopener noreferrer"
+          class="downloads-list__link"
+          ><button class="btn downloads-list__btn">⤓ x64 (Intel)</button></a
+        >
+      </li>
+      <li class="downloads-list__item">
+        <a
+          href="https://github.com/ZenPrivacy/zen-desktop/releases/latest/download/Zen-arm64.dmg"
+          rel="noopener noreferrer"
+          class="downloads-list__link"
+          ><button class="btn downloads-list__btn">
+            ⤓ ARM64 (Apple Silicon)
+          </button></a
+        >
+      </li>
+      <li class="downloads-list__item">
+        <a
+          href="{{ .Site.Params.homebrewLink }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="downloads-list__link"
+          ><button class="btn downloads-list__btn">Homebrew ↗</button></a
+        >
+      </li>
+    </ul>
+    <p class="downloads__note">
+      Unsure which version to download? Learn at
+      <a
+        href="https://support.apple.com/en-us/HT211814"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Apple's website</a
+      >.
+    </p>
 
-  <h3 id="downloads-windows">Windows</h3>
-  <ul class="downloads-list">
-    <li class="downloads-list__item">
-      <a href="https://github.com/ZenPrivacy/zen-desktop/releases/latest/download/Zen-amd64-installer.exe"
-        rel="noopener noreferrer" class="downloads-list__link"><button class="btn downloads-list__btn">
-          x64 Installer 💾
-        </button></a>
-    </li>
-    <li class="downloads-list__item">
-      <a href="https://github.com/ZenPrivacy/zen-desktop/releases/latest/download/Zen-arm64-installer.exe"
-        rel="noopener noreferrer" class="downloads-list__link"><button class="btn downloads-list__btn">
-          ARM64 Installer 💾
-        </button></a>
-    </li>
-  </ul>
-  <p>
-    Unsure which version to download? Click on 'Start' and type 'View
-    processor info'. The 'System type' field under 'Device
-    specifications' will tell you which one you need.
-  </p>
+    <h3 id="downloads-linux">Linux</h3>
+    <ul class="downloads-list">
+      <li class="downloads-list__item">
+        <a
+          href="https://github.com/ZenPrivacy/zen-desktop/releases/latest/download/Zen_linux_amd64.tar.gz"
+          rel="noopener noreferrer"
+          class="downloads-list__link"
+          ><button class="btn downloads-list__btn">
+            ⤓ x64 Portable Binary
+          </button></a
+        >
+      </li>
+      <li class="downloads-list__item">
+        <a
+          href="https://github.com/ZenPrivacy/zen-desktop/releases/latest/download/Zen_linux_arm64.tar.gz"
+          rel="noopener noreferrer"
+          class="downloads-list__link"
+          ><button class="btn downloads-list__btn">
+            ⤓ ARM64 Portable Binary
+          </button></a
+        >
+      </li>
+      <li class="downloads-list__item">
+        <a
+          href="https://aur.archlinux.org/packages/zen-adblocker-bin"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="downloads-list__link"
+          ><button class="btn downloads-list__btn">AUR ↗</button></a
+        >
+      </li>
+    </ul>
+    <p class="downloads__note">
+      Automatic proxy configuration is supported on GNOME- and KDE-based desktop
+      environments.
+    </p>
+  </section>
 
-  <h3 id="downloads-macos">macOS</h3>
-  <ul class="downloads-list">
-    <li class="downloads-list__item">
-      <a href="https://github.com/ZenPrivacy/zen-desktop/releases/latest/download/Zen-amd64.dmg"
-        rel="noopener noreferrer" class="downloads-list__link"><button class="btn downloads-list__btn">
-          x64 (Intel) Installer 💾
-        </button></a>
-    </li>
-    <li class="downloads-list__item">
-      <a href="https://github.com/ZenPrivacy/zen-desktop/releases/latest/download/Zen-arm64.dmg"
-        rel="noopener noreferrer" class="downloads-list__link"><button class="btn downloads-list__btn">
-          ARM64 (Apple Silicon) Installer 💾
-        </button></a>
-    </li>
-  </ul>
-  <p>
-    Unsure which version to download? Learn at
-    <a href="https://support.apple.com/en-us/HT211814" target="_blank" rel="noopener noreferrer">Apple's
-      website</a>.
-  </p>
+  <section id="community">
+    <h2>Community</h2>
+    <p>
+      Questions, issues, or feedback?
+      <a
+        href="{{ .Site.Params.discordInviteLink }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Join our Discord server</a
+      >
+      to get help from maintainers and other users, share feedback, and stay up
+      to date with releases. If you'd like to contribute, you can also
+      <a
+        href="https://github.com/ZenPrivacy/zen-desktop?tab=readme-ov-file#contributing"
+        target="_blank"
+        rel="noopener noreferrer"
+        >report bugs, suggest features, or submit code on GitHub.</a
+      >
+    </p>
+  </section>
 
-  <h4 id="downloads-macos-homebrew">Homebrew 🍺</h4>
-  <p>
-    Zen is also available via <a href="https://formulae.brew.sh/cask/zen-privacy" target="_blank" rel="noopener noreferrer">Homebrew</a>
-    for both Intel and Apple Silicon. To install it, run:
-  </p>
-  <pre class="code-block">brew install --cask zen-privacy</pre>
+  <section id="faq" class="faq">
+    <h2>FAQ</h2>
 
-  <h3 id="downloads-linux">Linux</h3>
-  <ul class="downloads-list">
-    <li class="downloads-list__item">
-      <a href="https://github.com/ZenPrivacy/zen-desktop/releases/latest/download/Zen_linux_amd64.tar.gz"
-        rel="noopener noreferrer" class="downloads-list__link"><button class="btn downloads-list__btn">
-          x64 Portable Binary 📦
-        </button></a>
-    </li>
-    <li class="downloads-list__item">
-      <a href="https://github.com/ZenPrivacy/zen-desktop/releases/latest/download/Zen_linux_arm64.tar.gz"
-        rel="noopener noreferrer" class="downloads-list__link"><button class="btn downloads-list__btn">
-          ARM64 Portable Binary 📦
-        </button></a>
-    </li>
-    <li class="downloads-list__item">
-      <a href="https://aur.archlinux.org/packages/zen-adblocker-bin" target="_blank" rel="noopener noreferrer"
-        class="downloads-list__link"><button class="btn downloads-list__btn">
-          AUR →
-        </button></a>
-    </li>
-  </ul>
-  <p>
-    On Linux, automatic proxy configuration is currently only
-    supported on GNOME- and KDE-based desktop environments.
-  </p>
-</section>
-
-<section id="community">
-  <h2>Community</h2>
-  <p>
-    Zen needs you!
-    <a href="{{ .Site.Params.discordInviteLink }}" target="_blank" rel="noopener noreferrer">Join our Discord
-      server</a>
-    to chat with other users and project maintainers, get help, and
-    stay up-to-date with the latest news and updates. You can also
-    <a href="https://github.com/ZenPrivacy/zen-desktop?tab=readme-ov-file#contributing" target="_blank"
-      rel="noopener noreferrer">contribute to Zen</a>
-    by reporting bugs, suggesting features, or submitting code.
-  </p>
-</section>
+    <ol class="faq__list">
+      <li class="faq__item">
+        <details class="faq__question">
+          <summary class="faq__summary">
+            Why does Zen need to install a certificate?
+          </summary>
+          <p class="faq__answer">
+            During the first run, Zen may prompt you to install a local root
+            certificate. This enables HTTPS filtering so Zen can block ads and
+            trackers on encrypted connections. The certificate is generated
+            locally on your device and never leaves it. All traffic is processed
+            on your machine – no data is sent to any servers.
+          </p>
+        </details>
+      </li>
+      <li class="faq__item">
+        <details class="faq__question">
+          <summary class="faq__summary">Does Zen work with a VPN?</summary>
+          <p class="faq__answer">
+            Yes. Zen works with any VPN on Windows and Linux, and with most VPNs
+            on macOS. If you experience issues, please reach out on
+            <a
+              href="{{ .Site.Params.discordInviteLink }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Discord</a
+            >
+            or other community channels for help.
+          </p>
+        </details>
+      </li>
+      <li class="faq__item">
+        <details class="faq__question">
+          <summary class="faq__summary">Which apps does Zen work with?</summary>
+          <p class="faq__answer">
+            Zen works with all major browsers – including Chrome, Firefox,
+            Safari, Edge, Opera, and Brave – as well as many desktop applications
+            that use the system's network settings. Some apps with custom
+            networking or strict certificate pinning may bypass filtering or
+            require additional configuration.
+          </p>
+        </details>
+      </li>
+      <li class="faq__item">
+        <details class="faq__question">
+          <summary class="faq__summary">
+            Does Zen slow down my computer or internet?
+          </summary>
+          <p class="faq__answer">
+            Zen is designed to be efficient and lightweight. All filtering
+            happens locally on your device, and for most users the performance
+            impact is negligible. In many cases, blocking ads and trackers can
+            actually improve page load times and reduce data usage.
+          </p>
+        </details>
+      </li>
+      <li class="faq__item">
+        <details class="faq__question">
+          <summary class="faq__summary">
+            Can Zen break websites or apps?
+          </summary>
+          <p class="faq__answer">
+            Like any ad-blocking tool, Zen can occasionally interfere with
+            certain sites or apps. When that happens, you can easily disable
+            filtering for a specific site, or adjust the filter lists. Zen aims
+            to minimize breakage while giving you control when needed.
+          </p>
+        </details>
+      </li>
+      <li class="faq__item">
+        <details class="faq__question">
+          <summary class="faq__summary">
+            How is Zen different from browser ad-blockers?
+          </summary>
+          <p class="faq__answer">
+            Browser ad-blockers operate within a single browser and only affect
+            traffic inside that browser. Zen runs at the system level, allowing
+            it to apply the same filtering rules across all browsers and
+            supported desktop apps – including applications that embed
+            web content or perform unwanted background tracking.
+          </p>
+        </details>
+      </li>
+      <li class="faq__item">
+        <details class="faq__question">
+          <summary class="faq__summary">
+            How is Zen different from DNS-level ad-blockers?
+          </summary>
+          <p class="faq__answer">
+            DNS-level ad-blockers work by blocking entire domains before a
+            connection is made. This approach is simple and fast, but it cannot
+            distinguish between ads and legitimate content served from the same
+            domain.
+          </p>
+          <p class="faq__answer">
+            Zen operates at the HTTP(S) level, which allows it to inspect
+            requests and responses and apply more precise filtering rules. This
+            enables finer-grained blocking with fewer false positives and
+            capabilities that are not possible at the DNS level.
+          </p>
+        </details>
+      </li>
+    </ol>
+  </section>
+</div>
 {{ end }}

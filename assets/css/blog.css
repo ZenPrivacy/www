@@ -18,13 +18,13 @@ figure {
 figcaption {
   font-size: .85rem;
   text-align: center;
-  color: #666;
+  color: var(--color-text-muted);
   margin-top: .5rem;
   text-wrap: balance;
 }
 
 .thankyou {
-  color: #666;
+  color: var(--color-text-muted);
   margin-top: 2em;
   margin-bottom: 1em;
 }
@@ -48,5 +48,5 @@ figcaption {
 
 .feature-illustrations img {
   border-radius: 0.5rem;
-  box-shadow: 0 6px 12px -4px rgba(0, 0, 0, 0.08), 0 3px 5px -2px rgba(0, 0, 0, 0.04);
+  filter: drop-shadow(var(--shadow-image));
 }
