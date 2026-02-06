@@ -350,31 +350,51 @@ article.page {
   text-decoration: underline;
 }
 
-.heading__mode-switch {
+.heading__github-badge {
+  display: inline-flex;
+  align-items: stretch;
+  border: 1px solid var(--color-overlay-border);
+  overflow: hidden;
+  text-decoration: none;
+  font-size: var(--font-size-12);
+  line-height: 1;
+}
+
+.heading__github-badge:hover {
+  border-color: var(--color-overlay-separator);
+}
+
+.heading__github-badge-label {
   display: inline-flex;
   align-items: center;
-  padding: 2px;
-  border-radius: var(--radius-full);
+  gap: 0.35rem;
+  padding: 0.25rem 0.5rem;
   background: var(--color-overlay);
-  border: 1px solid var(--color-overlay-border);
-}
-
-.heading__mode-link {
-  font-size: var(--font-size-12);
-  padding: 0.15rem 0.7rem;
-  border-radius: var(--radius-full);
-  text-decoration: none;
-  color: var(--color-overlay-muted);
-  transition: background-color var(--transition-base), color var(--transition-base);
-}
-
-.heading__mode-link:not(.heading__mode-link--active):hover {
   color: var(--color-text-inverse);
+  font-weight: 500;
+  white-space: nowrap;
 }
 
-.heading__mode-link--active {
-  background: var(--color-bg-primary);
-  color: var(--color-text-primary);
+.heading__github-badge-label svg {
+  fill: currentColor;
+  height: 0.875rem;
+  width: auto;
+}
+
+.heading__github-badge-stars {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--color-text-inverse);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+@media (max-width: 48rem) {
+  .heading__github-badge-label span {
+    display: none;
+  }
 }
 
 .dots {
