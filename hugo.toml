@@ -6,7 +6,7 @@ enableRobotsTXT = true
 disableKinds = ["taxonomy", "term"]
 
 [params]
-  discordInviteLink = 'https://discord.gg/jSzEwby7JY'
+  discordInviteLink = 'https://discord.gg/zGeQVatAUm'
   githubLink = 'https://github.com/ZenPrivacy/zen-desktop'
   openCollectiveLink = 'https://opencollective.com/zen-privacy'
   blueskyLink = 'https://bsky.app/profile/zen.irbis.sh'
