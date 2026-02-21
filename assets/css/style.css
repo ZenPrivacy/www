@@ -93,6 +93,17 @@ html, body {
   scroll-behavior: smooth;
 }
 
+body :target {
+  padding-top: calc(var(--header-height) + 1rem);
+}
+
+@supports (scroll-margin-top: 0) {
+  body :target {
+    padding-top: unset;
+    scroll-margin-top: calc(var(--header-height) + 1rem);
+  }
+}
+
 img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
