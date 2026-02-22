@@ -3,14 +3,10 @@ const path = require("path");
 
 const REPO = "ZenPrivacy/zen-desktop";
 const ASSETS = [
-  "Zen_darwin_amd64.tar.gz",
-  "Zen_darwin_amd64_noselfupdate.tar.gz",
-  "Zen_darwin_arm64.tar.gz",
-  "Zen_darwin_arm64_noselfupdate.tar.gz",
-  "Zen_windows_amd64.zip",
-  "Zen_windows_arm64.zip",
-  "Zen_linux_amd64_noselfupdate.tar.gz",
-  "Zen_linux_arm64_noselfupdate.tar.gz",
+  "Zen-amd64-installer.exe",
+  "Zen-amd64.dmg",
+  "Zen-arm64-installer.exe",
+  "Zen-arm64.dmg",
 ];
 const MARKUP_PATH = path.join(
   __dirname,
