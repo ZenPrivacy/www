@@ -1,0 +1,198 @@
+{{ define "page-styles" }}
+  {{ with resources.Get "css/vpn.css" | minify }}
+    <style>{{ .Content | safeCSS }}</style>
+  {{ end }}
+{{ end }}
+
+{{ define "page-scripts" }}
+  {{ with resources.Get "js/vpn.js" | minify }}
+    <script>{{ .Content | safeJS }}</script>
+  {{ end }}
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <script>
+    function onTurnstileSuccess() {
+      document.getElementById('vpn-waitlist-submit').disabled = false;
+    }
+    function onTurnstileExpired() {
+      document.getElementById('vpn-waitlist-submit').disabled = true;
+    }
+    function onTurnstileError() {
+      document.getElementById('vpn-waitlist-submit').disabled = true;
+      return true;
+    }
+
+    (function() {
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('input[name="price"]').forEach(function(radio) {
+          radio.addEventListener('change', function() {
+            var container = document.getElementById('vpn-custom-price');
+            var input = document.getElementById('vpn-custom-price-input');
+            if (this.value === 'other') {
+              container.hidden = false;
+              input.required = true;
+            } else {
+              container.hidden = true;
+              input.required = false;
+              input.value = '';
+            }
+          });
+        });
+      });
+    })();
+  </script>
+{{ end }}
+
+{{ define "main" }}
+<div class="vpn">
+  <section id="vpn-hero" class="vpn-hero">
+    <div class="vpn-hero__content">
+      <h1 class="vpn-hero__title">A VPN built into&nbsp;Zen</h1>
+      <p class="vpn-hero__description">
+        We're exploring what it would look like to build VPN functionality
+        directly into Zen – so you get ad-blocking, tracker protection, and
+        encrypted traffic in one app, with no extra software to install.
+      </p>
+      <a href="#vpn-waitlist">
+        <button class="btn vpn-hero__cta-btn">Join the waitlist</button>
+      </a>
+    </div>
+    <div class="vpn-hero__globe">
+      <canvas
+        id="vpn-globe-canvas"
+        role="img"
+        aria-label="Animated wireframe globe with network arcs representing VPN connections"
+      ></canvas>
+    </div>
+  </section>
+
+  <section id="vpn-why" class="vpn-why main-section">
+    <h2>Why build it into Zen?</h2>
+    <p class="vpn-why__intro">
+      Most VPNs are separate apps that run alongside your browser or ad-blocker.
+      That means extra configuration, potential conflicts, and another subscription
+      to manage. Building it into Zen could change&nbsp;that.
+    </p>
+    <ul class="vpn-features-list">
+      <li class="vpn-feature">
+        <h3 class="vpn-feature__title">One app, full protection</h3>
+        <p class="vpn-feature__description">
+          Ad-blocking, tracker filtering, and VPN encryption in a single
+          lightweight application. No juggling multiple tools.
+        </p>
+      </li>
+      <li class="vpn-feature">
+        <h3 class="vpn-feature__title">No conflicts</h3>
+        <p class="vpn-feature__description">
+          Third-party VPNs can interfere with Zen's proxy-based filtering.
+          A built-in VPN would work seamlessly with the ad-blocker from day one.
+        </p>
+      </li>
+      <li class="vpn-feature">
+        <h3 class="vpn-feature__title">Simpler setup</h3>
+        <p class="vpn-feature__description">
+          No separate account, no extra app, no manual configuration.
+          Toggle it on inside Zen and you're protected.
+        </p>
+      </li>
+      <li class="vpn-feature">
+        <h3 class="vpn-feature__title">Transparent and open</h3>
+        <p class="vpn-feature__description">
+          Built by the same open-source team, with the same commitment to
+          privacy. No logs, no tracking, no hidden agendas.
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="vpn-waitlist" class="vpn-waitlist main-section">
+    <h2>Join the waitlist</h2>
+    <p class="vpn-waitlist__intro">
+      Interested? Leave your email and let us know what you'd be willing to
+      pay. No commitment – we'll only reach out if this becomes real.
+    </p>
+
+    <form class="vpn-waitlist__form" action="https://submit-form.com/e3fWqVLCe">
+      <div class="vpn-waitlist__field">
+        <label class="vpn-waitlist__label" for="vpn-email">Email</label>
+        <input
+          class="vpn-waitlist__input"
+          type="email"
+          id="vpn-email"
+          name="email"
+          placeholder="you@example.com"
+          required
+        />
+      </div>
+
+      <fieldset class="vpn-waitlist__fieldset">
+        <legend class="vpn-waitlist__legend">
+          What would you pay per month?
+        </legend>
+        <div class="vpn-waitlist__price-options">
+          <label class="vpn-waitlist__price-option">
+            <input type="radio" name="price" value="3" class="vpn-waitlist__price-option-input" />
+            <span class="vpn-waitlist__price-option-label">$3</span>
+          </label>
+          <label class="vpn-waitlist__price-option">
+            <input type="radio" name="price" value="5" class="vpn-waitlist__price-option-input" checked />
+            <span class="vpn-waitlist__price-option-label">$5</span>
+          </label>
+          <label class="vpn-waitlist__price-option">
+            <input type="radio" name="price" value="7" class="vpn-waitlist__price-option-input" />
+            <span class="vpn-waitlist__price-option-label">$7</span>
+          </label>
+          <label class="vpn-waitlist__price-option">
+            <input type="radio" name="price" value="10" class="vpn-waitlist__price-option-input" />
+            <span class="vpn-waitlist__price-option-label">$10</span>
+          </label>
+          <label class="vpn-waitlist__price-option">
+            <input type="radio" name="price" value="other" class="vpn-waitlist__price-option-input" id="vpn-price-other" />
+            <span class="vpn-waitlist__price-option-label">Other</span>
+          </label>
+        </div>
+        <div class="vpn-waitlist__custom-price" id="vpn-custom-price" hidden>
+          <label class="vpn-waitlist__label" for="vpn-custom-price-input">Your price ($/month)</label>
+          <input
+            class="vpn-waitlist__input vpn-waitlist__custom-price-input"
+            type="number"
+            id="vpn-custom-price-input"
+            name="custom_price"
+            min="1"
+            placeholder="e.g. 8"
+          />
+        </div>
+      </fieldset>
+
+      <div class="vpn-waitlist__field">
+        <label class="vpn-waitlist__label" for="vpn-thoughts">
+          Anything else you'd like us to know?
+        </label>
+        <textarea
+          class="vpn-waitlist__input vpn-waitlist__textarea"
+          id="vpn-thoughts"
+          name="thoughts"
+          rows="3"
+          placeholder="Feature requests, concerns, what matters most to you..."
+        ></textarea>
+      </div>
+
+      <p class="vpn-waitlist__privacy">
+        We'll only use your email to contact you about Zen VPN. No spam, no
+        sharing with third parties.
+      </p>
+
+      <div
+        class="cf-turnstile"
+        data-sitekey="0x4AAAAAACqCk3RiMQMnCYHq"
+        data-callback="onTurnstileSuccess"
+        data-expired-callback="onTurnstileExpired"
+        data-error-callback="onTurnstileError"
+      ></div>
+
+      <button type="submit" id="vpn-waitlist-submit" class="btn vpn-waitlist__submit-btn" disabled>
+        Sign up for updates
+      </button>
+    </form>
+  </section>
+</div>
+{{ end }}
