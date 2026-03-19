@@ -2,14 +2,18 @@ const fs = require("fs");
 const path = require("path");
 
 const REPO = "ZenPrivacy/zen-desktop";
-const MARKUP_PATH = path.join(
-  __dirname,
-  "..",
-  "themes",
-  "zen",
-  "layouts",
-  "index.html"
-);
+const THEMES_DIR = path.join(__dirname, "..", "themes", "zen", "layouts");
+const FILES = [
+  {
+    path: path.join(THEMES_DIR, "index.html"),
+    pattern: /(<!-- star-count -->[\s\S]*?)(\S+)( GitHub stars)/,
+  },
+  {
+    path: path.join(THEMES_DIR, "_default", "baseof.html"),
+    pattern: /(<!-- star-count-badge -->[\s\S]*?>)(\S+)( ★<)/,
+    plus: false,
+  },
+];
 
 async function fetchStarCount() {
   const url = `https://api.github.com/repos/${REPO}`;
@@ -32,24 +36,24 @@ function formatCount(total) {
   return `${rounded}+`;
 }
 
-function updateMarkup(display) {
-  const html = fs.readFileSync(MARKUP_PATH, "utf-8");
-  const pattern = /(<!-- star-count -->[\s\S]*?)(\S+)( GitHub stars)/;
+function updateFile(filePath, pattern, display, plus) {
+  if (!plus) display = display.replace(/\+$/, "");
+  const html = fs.readFileSync(filePath, "utf-8");
   const match = html.match(pattern);
   if (!match) {
-    console.error("Could not find star-count marker in markup");
+    console.error(`Could not find star-count marker in ${filePath}`);
     process.exit(1);
   }
 
   const current = match[2];
   if (current === display) {
-    console.log(`Count unchanged at ${display}`);
+    console.log(`${filePath}: count unchanged at ${display}`);
     return { changed: false, current };
   }
 
   const updated = html.replace(pattern, `$1${display}$3`);
-  fs.writeFileSync(MARKUP_PATH, updated, "utf-8");
-  console.log(`Updated count from ${current} to ${display}`);
+  fs.writeFileSync(filePath, updated, "utf-8");
+  console.log(`${filePath}: updated count from ${current} to ${display}`);
   return { changed: true, current };
 }
 
@@ -58,14 +62,20 @@ async function main() {
   const display = formatCount(total);
   console.log(`Total stars: ${total} -> ${display}`);
 
-  const { changed, current } = updateMarkup(display);
+  let anyChanged = false;
+  let firstCurrent = null;
+  for (const file of FILES) {
+    const { changed, current } = updateFile(file.path, file.pattern, display, file.plus !== false);
+    if (firstCurrent === null) firstCurrent = current;
+    if (changed) anyChanged = true;
+  }
 
   // Write outputs for the GitHub Actions workflow.
   const outputFile = process.env.GITHUB_OUTPUT;
   if (outputFile) {
     fs.appendFileSync(
       outputFile,
-      `total=${total}\ndisplay=${display}\ncurrent=${current}\nchanged=${changed}\n`
+      `total=${total}\ndisplay=${display}\ncurrent=${firstCurrent}\nchanged=${anyChanged}\n`
     );
   }
 }
