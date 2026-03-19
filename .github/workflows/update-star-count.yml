@@ -1,0 +1,37 @@
+name: Update star count
+
+on:
+  schedule:
+    - cron: "0 0 * * 1" # Every Monday at midnight UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-count:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+        with:
+          node-version: 24
+
+      - name: Fetch and update star count
+        id: update
+        run: node scripts/update-star-count.js
+
+      - name: Create PR
+        if: steps.update.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@c0f553fe549906ede9cf27b5156039d195d2ece0 # v8.1.0
+        with:
+          commit-message: "Update star count to ${{ steps.update.outputs.display }}"
+          title: "Update star count to ${{ steps.update.outputs.display }}"
+          add-paths: themes/zen/layouts/index.html
+          body: |
+            Total stars: ${{ steps.update.outputs.total }} (was ${{ steps.update.outputs.current }}, now ${{ steps.update.outputs.display }}).
+          branch: github-actions-bot/update-star-count-${{ steps.update.outputs.display }}
+          delete-branch: true
+          base: master
