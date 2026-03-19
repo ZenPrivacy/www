@@ -29,7 +29,9 @@ jobs:
         with:
           commit-message: "Update star count to ${{ steps.update.outputs.display }}"
           title: "Update star count to ${{ steps.update.outputs.display }}"
-          add-paths: themes/zen/layouts/index.html
+          add-paths: |
+            themes/zen/layouts/index.html
+            themes/zen/layouts/_default/baseof.html
           body: |
             Total stars: ${{ steps.update.outputs.total }} (was ${{ steps.update.outputs.current }}, now ${{ steps.update.outputs.display }}).
           branch: github-actions-bot/update-star-count-${{ steps.update.outputs.display }}
