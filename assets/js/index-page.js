@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   setupOSButtons();
+  setupDownloadModal();
 });
 
 function setupOSButtons() {
@@ -20,6 +21,44 @@ function setupOSButtons() {
   const elementsToHide = document.querySelectorAll('[data-os="other"]');
   elementsToHide.forEach((element) => {
     element.classList.add('hidden');
+  });
+}
+
+function setupDownloadModal() {
+  var dialog = document.getElementById('download-modal');
+  var closeBtn = dialog.querySelector('.download-modal__close');
+  var downloads = document.getElementById('downloads');
+  var triggerElement = null;
+
+  downloads.addEventListener('click', function(e) {
+    var link = e.target.closest('.downloads-list__link');
+    if (!link) return;
+    if (link.target === '_blank') return;
+    if (!link.href || !link.href.startsWith('https://github.com/')) return;
+
+    triggerElement = link;
+    setTimeout(function() {
+      if (!dialog.open) {
+        dialog.showModal();
+      }
+    }, 100);
+  });
+
+  closeBtn.addEventListener('click', function() {
+    dialog.close();
+  });
+
+  dialog.addEventListener('click', function(e) {
+    if (e.target === dialog) {
+      dialog.close();
+    }
+  });
+
+  dialog.addEventListener('close', function() {
+    if (triggerElement) {
+      triggerElement.focus();
+      triggerElement = null;
+    }
   });
 }
 
