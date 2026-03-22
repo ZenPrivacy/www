@@ -339,3 +339,108 @@
 .faq__answer + .faq__answer {
   margin-top: var(--spacing-sm);
 }
+
+.download-modal {
+  max-width: 28rem;
+  border: 1px solid var(--color-border);
+  box-shadow: 4px 4px rgba(0, 0, 0, 0.3);
+  background: var(--color-bg-primary);
+  padding: var(--spacing-lg);
+  position: fixed;
+}
+
+.download-modal::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.download-modal[open] {
+  animation: download-modal-open 0.2s ease-out;
+}
+
+@keyframes download-modal-open {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .download-modal[open] {
+    animation: none;
+  }
+}
+
+.download-modal__close {
+  position: absolute;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
+  background: none;
+  border: none;
+  font-size: var(--font-size-xl);
+  cursor: pointer;
+  color: var(--color-text-muted);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  line-height: 1;
+}
+
+.download-modal__close:hover {
+  color: var(--color-text-primary);
+}
+
+.download-modal__title {
+  margin: 0 0 var(--spacing-xs) 0;
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+}
+
+.download-modal__subtitle {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-15);
+}
+
+.download-modal__divider {
+  border: none;
+  border-top: 1px solid var(--color-divider);
+  margin: var(--spacing-md) 0;
+}
+
+.download-modal__section {
+  margin: 0;
+}
+
+.download-modal__heading {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.download-modal__text {
+  margin: 0 0 var(--spacing-md) 0;
+  font-size: var(--font-size-15);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-secondary);
+}
+
+.download-modal__donate-btn {
+  background-color: #B04386;
+  color: var(--color-text-inverse);
+}
+
+.download-modal__donate-btn:hover {
+  background-color: #993b75;
+}
+
+.download-modal__donate-btn:active {
+  background-color: #833364;
+}
+
+@media (max-width: 30rem) {
+  .download-modal {
+    max-width: calc(100vw - 2rem);
+  }
+}

@@ -514,4 +514,32 @@
     </ol>
   </section>
 </div>
+
+<dialog id="download-modal" class="download-modal" aria-labelledby="download-modal-title">
+  <button class="download-modal__close" aria-label="Close">&times;</button>
+
+  <h2 id="download-modal-title" class="download-modal__title">Thanks for downloading Zen</h2>
+  <p class="download-modal__subtitle">Your download will start shortly.</p>
+
+  <hr class="download-modal__divider" />
+
+  <div class="download-modal__section">
+    <h3 class="download-modal__heading">Support the project</h3>
+    <p class="download-modal__text">
+      Zen is free, open source, and community-powered — no venture capital, no
+      tracking, no hidden agenda. If it's useful to you, consider supporting our
+      development.
+    </p>
+    <a
+      href="{{ .Site.Params.donateLink }}"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <button class="btn download-modal__donate-btn">
+        ♥ Donate
+      </button>
+    </a>
+  </div>
+
+</dialog>
 {{ end }}
